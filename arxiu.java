@@ -1,1 +1,0 @@
--- serveix per veure si quan tu fas un  pull ho pilles tot
