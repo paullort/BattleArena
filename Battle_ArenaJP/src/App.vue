@@ -24,6 +24,6 @@ export default {
 
 <style>
 .home-page .banner {
-  /* Agrega estilos para el banner aquí */
+  /* Agrega estilos para el banner aquí    edffdgf */
 }
 </style>
