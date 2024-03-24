@@ -28,14 +28,14 @@
   }
   </script>
   
-  <style>
+  <style scoped>
   .player-management-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('@/assets/player-management-background.jpg'); /* Ajusta la ruta a tu imagen */
+    background-image: url('@/assets/IMATGESFONS/blue.png'); /* Ajusta la ruta a tu imagen */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

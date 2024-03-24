@@ -32,14 +32,14 @@
   }
   </script>
   
-  <style>
+  <style scoped>
   .ranking-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('@/assets/ranking-background.jpg'); /* Asegúrate de que la ruta a la imagen es correcta */
+    background-image: url('@/assets/IMATGESFONS/blue.png'); /* Asegúrate de que la ruta a la imagen es correcta */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

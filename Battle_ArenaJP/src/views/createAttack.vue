@@ -33,7 +33,7 @@
   }
   </script>
   
-  <style>
+  <style scoped>
   .create-attack-page {
     display: flex;
     flex-direction: column;

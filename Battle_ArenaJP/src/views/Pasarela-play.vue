@@ -39,14 +39,14 @@
   }
 </script>
   
-<style>
+<style scoped>
   .pasarela-play {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('@/assets/pasarela-play-background.jpg');
+    background-image: url('@/assets/IMATGESFONS/blue.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

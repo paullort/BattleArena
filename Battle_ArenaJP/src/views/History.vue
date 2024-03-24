@@ -34,7 +34,7 @@
   }
 </script>
   
-<style>
+<style scoped>
   .history-page {
     display: flex;
     flex-direction: column;

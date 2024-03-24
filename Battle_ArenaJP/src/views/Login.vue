@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* Estilos generales, puedes reutilizar los del formulario de registro */
 .login-page {
   display: flex;
@@ -35,10 +35,12 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url('~@/assets/login-background.jpg'); /* Asegúrate de que la ruta a la imagen es correcta */
+  width: 100vh;
+  background-image: url('@/assets/IMATGESFONS/pree.png'); /* Asegúrate de que la ruta a la imagen es correcta */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* Estilos para el botón de regresar */

@@ -62,7 +62,7 @@
   }
   </script>
   
-  <style>
+  <style scoped>
   .create-game-page {
     display: flex;
     flex-direction: column;

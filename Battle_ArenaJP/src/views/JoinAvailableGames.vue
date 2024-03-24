@@ -38,7 +38,7 @@
   }
   </script>
   
-  <style>
+  <style scoped>
   .join-games-page {
     display: flex;
     flex-direction: column;

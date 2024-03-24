@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .register-page {
   display: flex;
   flex-direction: column;
@@ -94,4 +94,4 @@ input[type=password] {
 .continue-button:hover {
   background-color: #ffea00;
 }
-</style>
+</style >

@@ -29,15 +29,23 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
 .home-page {
   height: 100vh;
-  background: url('path-to-your-background-image.jpg') no-repeat center center;
+  width: 100vw;
+  background: url('@/assets/IMATGESFONS/main.png');
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: 0px;
+}
+.banner{
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .banner h1 {

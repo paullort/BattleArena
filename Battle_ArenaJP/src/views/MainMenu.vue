@@ -43,15 +43,16 @@
   }
   </script>
   
-  <style>
+  <style scoped>
   .main-menu {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('@/assets/main-menu-background.jpg'); /* Adjust the path to your image */
-    background-size: cover;
+    background-image: url('@/assets/IMATGESFONS/green.png'); /* Adjust the path to your image */
+    height: 100vh;
+    width: 100vh;
     background-position: center;
     background-repeat: no-repeat;
   }
