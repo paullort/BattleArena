@@ -53,6 +53,21 @@ const router = createRouter({
       path: '/createattack',
       name: 'createattack',
       component: () => import('../views/createAttack.vue')
+    },
+    {
+      path: '/joinavailablegames',
+      name: 'joinAvailableGames',
+      component: () => import('../views/JoinAvailableGames.vue')
+    },
+    {
+      path: '/creategame',
+      name: 'createGame',
+      component: () => import('../views/CreateGame.vue')
+    },
+    {
+      path: '/history',
+      name: 'history',
+      component: () => import('../views/History.vue')
     }
 
   ]

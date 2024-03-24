@@ -10,9 +10,10 @@
         <button @click="viewHistory">View History</button>
       </section>
     </main>
+    
 </template>
   
-  <script>
+<script>
   export default {
     methods: {
       goBack() {
@@ -21,18 +22,24 @@
       },
       availableGames() {
         // Logic for showing available games
+        this.$router.push('/JoinAvailableGames');
+
       },
       createGame() {
         // Logic for creating a new game
+        this.$router.push('/CreateGame');
+
       },
       viewHistory() {
         // Logic for viewing game history
+        this.$router.push('/History');
+
       }
     }
   }
-  </script>
+</script>
   
-  <style>
+<style>
   .pasarela-play {
     display: flex;
     flex-direction: column;
@@ -91,5 +98,5 @@
       font-size: 1em;
     }
   }
-  </style>
+</style>
   

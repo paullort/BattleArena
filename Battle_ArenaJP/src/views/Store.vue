@@ -22,6 +22,8 @@
       },
       createAttack() {
         // Lógica para crear ataque
+        this.$router.push('/createAttack');
+
       },
       equippedAttacks() {
         // Lógica para mostrar ataques equipados
