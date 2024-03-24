@@ -9,9 +9,9 @@
         <button class="management-button" @click="deletePlayer">DELETION</button>
       </section>
     </main>
-  </template>
+</template>
   
-  <script>
+<script>
   export default {
     methods: {
       goBack() {
@@ -20,15 +20,16 @@
       },
       showPlayerInfo() {
         // Navega a la pantalla de información del jugador
+        this.$router.push('/PlayerInfo');
       },
       deletePlayer() {
         // Navega a la pantalla de eliminación de jugador
       }
     }
   }
-  </script>
+</script>
   
-  <style scoped>
+<style scoped>
   .player-management-page {
     display: flex;
     flex-direction: column;
@@ -87,5 +88,5 @@
       font-size: 1em;
     }
   }
-  </style>
+</style>
   

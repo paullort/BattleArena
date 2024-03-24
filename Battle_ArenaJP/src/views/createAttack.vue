@@ -24,7 +24,7 @@
   export default {
     methods: {
       goBack() {
-        this.$router.push('/Pasarela-play');
+        this.$router.push('/Store');
       },
       createAttack() {
         // Add the logic for creating an attack here

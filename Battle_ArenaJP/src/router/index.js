@@ -68,6 +68,16 @@ const router = createRouter({
       path: '/history',
       name: 'history',
       component: () => import('../views/History.vue')
+    },
+    {
+      path: '/playerinfo',
+      name: 'playerinfo',
+      component: () => import('../views/PlayerInfo.vue')
+    },
+    {
+      path: '/modifyplayer',
+      name: 'modifyplayer',
+      component: () => import('../views/ModifyPlayer.vue')
     }
 
   ]
