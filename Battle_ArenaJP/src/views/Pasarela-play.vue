@@ -46,6 +46,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100vw;
     background-image: url('@/assets/IMATGESFONS/blue.png');
     background-size: cover;
     background-position: center;
@@ -70,8 +71,14 @@
   
   .buttons-container h1 {
     color: white;
+    font-size: 100px;
+    font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
   
   section button {

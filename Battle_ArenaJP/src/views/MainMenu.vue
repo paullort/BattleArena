@@ -52,7 +52,7 @@
     height: 100vh;
     background-image: url('@/assets/IMATGESFONS/green.png'); /* Adjust the path to your image */
     height: 100vh;
-    width: 100vh;
+    width: 100vw;
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -77,6 +77,10 @@
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
   
   .menu-items {

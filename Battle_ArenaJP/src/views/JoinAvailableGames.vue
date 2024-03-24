@@ -8,12 +8,12 @@
         <p>Here are available games to Join</p>
         <ul>
           <li>
-            <span>Game 1</span>
+            <span>Game 1  </span>
             <button @click="joinGame(1)">JOIN</button>
           </li>
           <!-- Repite para cada juego disponible -->
           <li>
-            <span>Game 2</span>
+            <span>Game 2  </span>
             <button @click="joinGame(2)">JOIN</button>
           </li>
           <!-- ... -->
@@ -45,6 +45,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100vw;
     background-image: url('@/assets/join-games-background.jpg');
     background-size: cover;
     background-position: center;
@@ -75,11 +76,12 @@
   
   .games-list ul {
     list-style: none;
-    padding: 0;
+    padding: 10px;
   }
   
   .games-list li {
     margin-bottom: 1em;
+    
   }
   
   .games-list button {
@@ -88,6 +90,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    
   }
   
   .games-list button:hover {
@@ -98,6 +101,7 @@
     .games-list button {
       padding: 0.5em;
       font-size: 0.8em;
+      
     }
   }
   </style>

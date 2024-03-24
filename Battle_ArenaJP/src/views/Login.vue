@@ -35,12 +35,14 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
   background-image: url('@/assets/IMATGESFONS/pree.png'); /* Asegúrate de que la ruta a la imagen es correcta */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Estilos para el botón de regresar */

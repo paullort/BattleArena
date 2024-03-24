@@ -36,6 +36,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100vw;
     background-image: url('@/assets/IMATGESFONS/blue.png'); /* Ajusta la ruta a tu imagen */
     background-size: cover;
     background-position: center;
@@ -46,7 +47,13 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding: 1em;
+    padding: 0px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
   
   .back-button {
@@ -62,6 +69,7 @@
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
+    text-align: center;
   }
   
   .management-button {

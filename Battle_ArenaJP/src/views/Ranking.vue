@@ -39,6 +39,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100vw;
     background-image: url('@/assets/IMATGESFONS/blue.png'); /* Asegúrate de que la ruta a la imagen es correcta */
     background-size: cover;
     background-position: center;

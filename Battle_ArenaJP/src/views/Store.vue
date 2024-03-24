@@ -45,6 +45,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100vw;
     background-image: url('@/assets/IMATGESFONS/blue.png'); /* Asegúrate de que la ruta a la imagen es correcta */
     background-size: cover;
     background-position: center;
@@ -66,11 +67,20 @@
     font-weight: bold;
     cursor: pointer;
   }
+  .store-container {
+    text-align: center;
+    align-items: center;
+  }
   
   .store-container h1 {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
   
   .store-container button {
@@ -85,17 +95,29 @@
     text-transform: uppercase;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
-    display: block; /* Hace que los botones se apilen verticalmente */
+    display: block; 
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
   
   .store-container button:hover {
     background-color: #ffea00; /* Color de fondo al hacer hover */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
   
   @media (max-width: 768px) {
     .store-container button {
       padding: 0.5em 1em;
       font-size: 1em;
+      align-items: center;
+      
     }
   }
   </style>

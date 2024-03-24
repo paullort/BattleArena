@@ -41,6 +41,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100vw;
     background-image: url('@/assets/history-background.jpg'); /* Ajusta la ruta de tu imagen */
     background-size: cover;
     background-position: center;
