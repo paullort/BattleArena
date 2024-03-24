@@ -5,6 +5,8 @@
       <div class="button-container">
         <button class="login-button" @click="goToLogin">LOG IN</button>
         <button class="register-button" @click="goToRegister">Register NOW</button>
+        <!-- Botón TEMPORAL para desarrollo -->
+        <button class="temporal-button" @click="goToMainMenu">TEMPORAL-on et portaria si estiguessis logejat</button>
       </div>
     </div>
   </div>
@@ -18,6 +20,10 @@ export default {
     },
     goToRegister() {
       this.$router.push('/register');
+    },
+    goToMainMenu() {
+      // Redirecciona directamente al menú principal (MainMenu.vue)
+      this.$router.push('/MainMenu');
     }
   }
 }
@@ -35,10 +41,10 @@ export default {
 }
 
 .banner h1 {
-  font-size: 4rem; /* Adjust size as needed */
-  color: #ffffff; /* Assuming white text */
+  font-size: 4rem; /* Ajusta el tamaño según sea necesario */
+  color: #ffffff; /* Suponiendo texto blanco */
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for text for better readability */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto para una mejor legibilidad */
 }
 
 .button-container {
@@ -49,10 +55,10 @@ export default {
 
 .login-button,
 .register-button {
-  background-color: #ffd700; /* Yellow color for buttons */
+  background-color: #ffd700; /* Color amarillo para los botones */
   border: none;
-  border-radius: 20px; /* Rounded corners for buttons */
-  color: #000000; /* Black text on buttons */
+  border-radius: 20px; /* Esquinas redondeadas para los botones */
+  color: #000000; /* Texto negro en botones */
   padding: 1rem 2rem;
   font-size: 1.5rem;
   cursor: pointer;
@@ -63,17 +69,35 @@ export default {
 
 .login-button:hover,
 .register-button:hover {
-  transform: scale(1.05); /* Slightly enlarge buttons on hover */
+  transform: scale(1.05); /* Ligeramente agrandar botones al pasar el mouse */
 }
 
-/* Adjust responsiveness as needed */
+.temporal-button {
+  background-color: #4CAF50; /* Color distintivo para el botón temporal */
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.temporal-button:hover {
+  background-color: #66BB6A; /* Color al hacer hover */
+}
+
 @media (max-width: 768px) {
   .banner h1 {
     font-size: 2rem;
   }
 
   .login-button,
-  .register-button {
+  .register-button,
+  .temporal-button {
     padding: 0.5rem 1rem;
     font-size: 1rem;
   }

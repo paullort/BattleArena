@@ -1,8 +1,8 @@
 <template>
   <main class="register-page">
-    <nav>
+    <header>
       <button class="back-button" @click="goBack">⬅️ Back</button>
-    </nav>
+    </header>
     <section class="form-container">
       <h1 class="form-title">REGISTER FORM</h1>
       <form @submit.prevent="submitForm">
@@ -36,14 +36,15 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-image: url('~@/assets/register-background.jpg'); /* Asegúrate de que la ruta a la imagen es correcta */
+  width: 100vw; /* Ancho del viewport */
+  height: 100vh; /* Alto del viewport */
+  background-image: url('@/assets/IMATGESFONS/pree.png'); /* Usa @ para referenciar la carpeta src */
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
-nav {
+header {
   position: absolute;
   top: 0;
   left: 0;
@@ -71,12 +72,6 @@ nav {
   margin-bottom: 1em;
 }
 
-.form-label {
-  display: block;
-  margin-bottom: 0.5em;
-  color: #4d6d91;
-}
-
 input[type=text],
 input[type=password] {
   width: 100%;
@@ -88,7 +83,7 @@ input[type=password] {
 
 .continue-button {
   padding: 0.5em 1em;
-  background-color: #edd54d;
+  background-color: #edd54d; /* Color modificado para mejor contraste */
   border: none;
   border-radius: 5px;
   cursor: pointer;
