@@ -50,13 +50,28 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding: 1em;
+    padding: 0px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  
+  header h1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0px;
+    width: 100vw;
+    font-size: 90px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+
+  }
   .back-button {
     padding: 0.5em 1em;
     background-color: #ffd700; /* Color de fondo amarillo para coincidir con la imagen */
@@ -68,12 +83,15 @@
   
   .search-section {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: center;
+    width: 100vw;
+    display: flex;
+    flex-direction: vert column;
   }
   
   .search-section input {
     padding: 0.5em;
+    padding-right: 200px;
     margin-right: 0.5em;
   }
   
