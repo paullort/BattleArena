@@ -44,7 +44,7 @@
     methods: {
       goBack() {
         // Replace with your route
-        this.$router.push('/previous-page');
+        this.$router.push('/PlayerManagement');
       },
       modify(attribute) {
         // Replace with your logic

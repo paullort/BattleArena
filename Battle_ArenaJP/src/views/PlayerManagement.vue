@@ -24,6 +24,7 @@
       },
       deletePlayer() {
         // Navega a la pantalla de eliminación de jugador
+        this.$router.push('/Deletion');
       }
     }
   }

@@ -78,6 +78,16 @@ const router = createRouter({
       path: '/modifyplayer',
       name: 'modifyplayer',
       component: () => import('../views/ModifyPlayer.vue')
+    },
+    {
+      path: '/deletion',
+      name: 'deletion',
+      component: () => import('../views/Deletion.vue')
+    },
+    {
+      path: '/popupdelete',
+      name: 'popupdelete',
+      component: () => import('../views/PopUpDelete.vue')
     }
 
   ]
