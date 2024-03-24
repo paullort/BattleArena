@@ -24,15 +24,20 @@
       },
       playGame() {
         // Navigate to the game screen
+        this.$router.push('/Pasarela-play');
+
       },
       playerManagement() {
         // Navigate to the player management screen
+        this.$router.push('/PlayerManagement');
       },
       listPlayers() {
         // Navigate to the list players screen
+        this.$router.push('/Ranking');
       },
       openStore() {
         // Navigate to the store
+        this.$router.push('/Store');
       }
     }
   }

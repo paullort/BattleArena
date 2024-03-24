@@ -28,7 +28,33 @@ const router = createRouter({
       path: '/MainMenu',
       name: 'MainMenu',
       component: () => import('../views/MainMenu.vue')
+    },
+    {
+      path: '/playerManagement',
+      name: 'playerManagement',
+      component: () => import('../views/PlayerManagement.vue')
+    },
+    {
+      path: '/pasarela-play',
+      name: 'pasarela-play',
+      component: () => import('../views/Pasarela-play.vue')
+    },
+    {
+      path: '/ranking',
+      name: 'ranking',
+      component: () => import('../views/Ranking.vue')
+    },
+    {
+      path: '/store',
+      name: 'store',
+      component: () => import('../views/Store.vue')
+    },
+    {
+      path: '/createattack',
+      name: 'createattack',
+      component: () => import('../views/createAttack.vue')
     }
+
   ]
 })
 
