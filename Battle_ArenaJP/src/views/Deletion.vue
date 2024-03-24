@@ -37,6 +37,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100vw;
     background: #fff; /* o cualquier otro color o imagen de fondo */
     text-align: center;
   }

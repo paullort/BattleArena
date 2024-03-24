@@ -61,6 +61,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
   background-image: url('@/assets/player-info-background.jpg'); /* Adjust the path to your image */
   background-size: cover;
   background-position: center;

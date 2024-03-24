@@ -35,6 +35,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100vw;
     background: #fff; /* o el color de fondo deseado */
     text-align: center;
   }

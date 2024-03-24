@@ -49,7 +49,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     background-image: url('@/assets/IMATGESFONS/green.png'); /* Adjust the path to your image */
     height: 100vh;
     width: 100vw;

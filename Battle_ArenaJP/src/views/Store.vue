@@ -70,6 +70,9 @@
   .store-container {
     text-align: center;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;  
   }
   
   .store-container h1 {
@@ -84,8 +87,9 @@
   }
   
   .store-container button {
-    background-color: #ffd700; /* Color de fondo amarillo para los botones */
+    background-color: #ffd700; /* Yellow background for buttons */
     color: black;
+    width: 200px;
     margin: 10px;
     padding: 10px 20px;
     border: none;
@@ -95,12 +99,6 @@
     text-transform: uppercase;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
-    display: block; 
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
   }
   
   .store-container button:hover {
