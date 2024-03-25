@@ -38,7 +38,7 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-image: url('@/assets/IMATGESFONS/blue.png'); /* Ajusta la ruta a tu imagen */
+    background-image: url('@/assets/IMATGESFONS/blue.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -59,7 +59,7 @@
   
   .back-button {
     padding: 0.5em 1em;
-    background-color: #ffd700; /* Color de fondo amarillo para que coincida con la imagen */
+    background-color: #ffd700; 
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -74,7 +74,7 @@
   }
   
   .management-button {
-    background-color: #ffd700; /* Color de fondo amarillo para los botones */
+    background-color: #ffd700; 
     color: black;
     margin: 10px;
     padding: 10px 20px;
@@ -88,7 +88,7 @@
   }
   
   .management-button:hover {
-    background-color: #ffea00; /* Color de fondo al hacer hover */
+    background-color: #ffea00; 
   }
   
   @media (max-width: 768px) {

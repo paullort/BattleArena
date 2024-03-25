@@ -27,7 +27,6 @@
         this.$router.push('/Store');
       },
       createAttack() {
-        // Add the logic for creating an attack here
       }
     }
   }
@@ -41,7 +40,7 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-image: url('@/assets/create-attack-background.jpg'); /* Adjust the path to your image */
+    background-image: url('@/assets/create-attack-background.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -57,7 +56,7 @@
   
   .back-button {
     padding: 0.5em 1em;
-    background-color: #ffd700; /* Yellow background color to match the buttons */
+    background-color: #ffd700; 
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -66,7 +65,7 @@
   
   .attack-form h1 {
     margin: 0.5em 0;
-    color: #ffd700; /* Yellow color to match the theme */
+    color: #ffd700; 
     font-size: 2em;
   }
   
@@ -84,7 +83,7 @@
   
   .attack-form button {
     padding: 0.5em 1em;
-    background-color: #ffd700; /* Yellow background for buttons */
+    background-color: #ffd700; 
     border: none;
     border-radius: 5px;
     font-size: 1rem;
@@ -94,7 +93,7 @@
   }
   
   .attack-form button:hover {
-    background-color: #ffea00; /* Color on hover */
+    background-color: #ffea00; 
   }
   
   @media (max-width: 768px) {

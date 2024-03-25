@@ -15,14 +15,14 @@
   export default {
     methods: {
       goBack() {
-        // Navigate back to the previous page
+        
         this.$router.go(-1);
       },
       confirmDeletion() {
-        // Logic to confirm deletion
+        
       },
       cancelDeletion() {
-        // Logic to cancel deletion
+        
       },
     }
   }
@@ -36,7 +36,7 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background: #fff; /* o el color de fondo deseado */
+    background: #fff; 
     text-align: center;
   }
   
@@ -48,7 +48,7 @@
   }
   
   .back-button {
-    background-color: #ffd700; /* un color que contraste con el fondo */
+    background-color: #ffd700; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -57,9 +57,9 @@
   
   .deletion-confirmation h2 {
     margin-bottom: 1em;
-    background-color: #ffd700; /* un color para resaltar la pregunta */
-    padding: 0.5em 1em;
-    /* Agregar sombra de texto o bordes si es necesario */
+    background-color: #ffd700;
+    padding: 0.5em 1em; 
+
   }
   
   button {
@@ -73,11 +73,11 @@
   }
   
   .confirm-button {
-    background-color: #4CAF50; /* Color para la confirmación */
+    background-color: #4CAF50; 
   }
   
   .cancel-button {
-    background-color: #f44336; /* Color para cancelar */
+    background-color: #f44336; 
   }
   
   button:hover {

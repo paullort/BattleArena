@@ -43,11 +43,11 @@
   export default {
     methods: {
       goBack() {
-        // Replace with your route
+        
         this.$router.push('/PlayerManagement');
       },
       modify(attribute) {
-        // Replace with your logic
+        
         console.log(`Modify ${attribute}`);
       }
     }
@@ -62,7 +62,7 @@
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  background-image: url('@/assets/player-info-background.jpg'); /* Adjust the path to your image */
+  background-image: url('@/assets/player-info-background.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -78,14 +78,14 @@ header {
 
 .back-button {
   padding: 0.5em 1em;
-  background-color: #ffd700; /* Yellow background color */
+  background-color: #ffd700; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .player-info h1 {
-  background: white; /* White background for text */
+  background: white; 
   display: inline-block;
   padding: 0.5em 1em;
   margin-bottom: 1em;
@@ -97,8 +97,8 @@ header {
 }
 
 .player-info img {
-  max-width: 100px; /* Or the size you prefer */
+  max-width: 100px; 
   max-height: 100px;
-  /* More styles for the image if needed */
+  
 }
 </style>

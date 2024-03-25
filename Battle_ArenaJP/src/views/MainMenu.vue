@@ -19,24 +19,24 @@
   export default {
     methods: {
       goBack() {
-        // Navigate back to the home page
+        
         this.$router.push('/');
       },
       playGame() {
-        // Navigate to the game screen
+        
         this.$router.push('/Pasarela-play');
 
       },
       playerManagement() {
-        // Navigate to the player management screen
+        
         this.$router.push('/PlayerManagement');
       },
       listPlayers() {
-        // Navigate to the list players screen
+        
         this.$router.push('/Ranking');
       },
       openStore() {
-        // Navigate to the store
+        
         this.$router.push('/Store');
       }
     }
@@ -49,7 +49,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url('@/assets/IMATGESFONS/green.png'); /* Adjust the path to your image */
+    background-image: url('@/assets/IMATGESFONS/green.png'); 
     height: 100vh;
     width: 100vw;
     background-position: center;
@@ -65,7 +65,7 @@
   
   .back-button {
     padding: 0.5em 1em;
-    background-color: #ffd700; /* Yellow background color to match the theme */
+    background-color: #ffd700; 
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -84,12 +84,12 @@
   
   .menu-items {
     display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    width: 100%; /* Set width to match parent if needed */
+    flex-direction: column; 
+    width: 100%; 
   }
   
   .menu-items button {
-    background-color: #ffd700; /* Yellow background for buttons */
+    background-color: #ffd700; 
     color: black;
     margin: 10px;
     padding: 10px 20px;
@@ -103,7 +103,7 @@
   }
   
   .menu-items button:hover {
-    background-color: #ffea00; /* Color on hover */
+    background-color: #ffea00; 
   }
   
   @media (max-width: 768px) {

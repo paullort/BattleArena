@@ -11,7 +11,7 @@
             <span>Game 1  </span>
             <button @click="joinGame(1)">JOIN</button>
           </li>
-          <!-- Repite para cada juego disponible -->
+          <!-- Repetir per a  cada partida disponible -->
           <li>
             <span>Game 2  </span>
             <button @click="joinGame(2)">JOIN</button>
@@ -26,13 +26,13 @@
   export default {
     methods: {
       goBack() {
-        // Navega de vuelta a la pantalla anterior
+        // Navega pantalla anterior
         this.$router.push('/Pasarela-play');
       },
       joinGame(gameId) {
-        // Lógica para unirse al juego seleccionado
+        
         console.log('Joining game:', gameId);
-        // Aquí iría el código para unirse al juego
+        
       }
     }
   }
@@ -62,7 +62,7 @@
   
   .back-button {
     padding: 0.5em 1em;
-    background-color: #ffd700; /* Yellow background color to match the theme */
+    background-color: #ffd700; 
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -70,7 +70,7 @@
   }
   
   .games-list h1 {
-    color: #ffd700; /* Yellow color for the title */
+    color: #ffd700; 
     margin-bottom: 1em;
   }
   
@@ -86,7 +86,7 @@
   
   .games-list button {
     padding: 0.5em 1em;
-    background-color: #ffd700; /* Yellow background for buttons */
+    background-color: #ffd700; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -94,7 +94,7 @@
   }
   
   .games-list button:hover {
-    background-color: #ffea00; /* Lighter yellow on hover */
+    background-color: #ffea00; 
   }
   
   @media (max-width: 768px) {

@@ -21,14 +21,14 @@ export default {
       this.$router.go(-1);
     },
     submitLogin() {
-      // Aquí iría la lógica de inicio de sesión.
+      //lógica de inicio de sesión.
     }
   }
 }
 </script>
 
 <style scoped>
-/* Estilos generales, puedes reutilizar los del formulario de registro */
+
 .login-page {
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@ export default {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-image: url('@/assets/IMATGESFONS/pree.png'); /* Asegúrate de que la ruta a la imagen es correcta */
+  background-image: url('@/assets/IMATGESFONS/pree.png'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -45,10 +45,6 @@ export default {
   justify-content: center;
 }
 
-/* Estilos para el botón de regresar */
-/* Reutiliza los estilos de .back-button que ya has definido en tu formulario de registro */
-
-/* Contenedor del formulario y título */
 .form-container {
   background: rgba(255, 255, 255, 0.8);
   padding: 2em;
@@ -57,17 +53,16 @@ export default {
 }
 
 .form-title {
-  background-color: #ffd700; /* Color de fondo del título */
-  color: black; /* Color del texto del título */
+  background-color: #ffd700; 
+  color: black; 
   padding: 10px;
   margin-bottom: 20px;
 }
 
-/* Estilos de las etiquetas y campos de texto */
 .form-label {
   display: block;
   margin-bottom: 1em;
-  color: #333; /* Cambia este color según tus preferencias */
+  color: #333; 
 }
 
 input[type=text],
@@ -79,11 +74,11 @@ input[type=password] {
   border-radius: 5px;
 }
 
-/* Estilos para el botón de continuar */
+
 .continue-button {
   width: 100%;
   padding: 0.5em;
-  background-color: #ffd700; /* Fondo amarillo */
+  background-color: #ffd700; 
   border: none;
   border-radius: 5px;
   cursor: pointer;

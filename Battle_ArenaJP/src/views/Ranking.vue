@@ -12,7 +12,7 @@
         <ul>
           <li>#1 (id jugador) (pointsXP)</li>
           <li>#2 (id jugador) (pointsXP)</li>
-          <!-- Repite para más jugadores -->
+          <!-- Repetir  per més jugadors -->
         </ul>
       </section>
     </main>
@@ -22,11 +22,10 @@
   export default {
     methods: {
       goBack() {
-        // Navigate back to the player management screen
         this.$router.push('/MainMenu');
       },
       sortPlayers() {
-        // Logic to sort players
+        // Logica players
       }
     }
   }
@@ -40,7 +39,7 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-image: url('@/assets/IMATGESFONS/blue.png'); /* Asegúrate de que la ruta a la imagen es correcta */
+    background-image: url('@/assets/IMATGESFONS/blue.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -74,7 +73,7 @@
   }
   .back-button {
     padding: 0.5em 1em;
-    background-color: #ffd700; /* Color de fondo amarillo para coincidir con la imagen */
+    background-color: #ffd700; 
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -97,7 +96,7 @@
   
   .search-section button {
     padding: 0.5em 1em;
-    background-color: #ffd700; /* Color de fondo amarillo para el botón */
+    background-color: #ffd700; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -109,7 +108,7 @@
   }
   
   .ranking-list li {
-    background-color: #ffffff; /* Fondo blanco para la lista de jugadores */
+    background-color: #ffffff; 
     margin: 0.5em 0;
     padding: 0.5em;
     border-radius: 5px;

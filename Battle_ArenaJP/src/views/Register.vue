@@ -36,9 +36,9 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw; /* Ancho del viewport */
-  height: 100vh; /* Alto del viewport */
-  background-image: url('@/assets/IMATGESFONS/pree.png'); /* Usa @ para referenciar la carpeta src */
+  width: 100vw; 
+  height: 100vh; 
+  background-image: url('@/assets/IMATGESFONS/pree.png'); 
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -83,7 +83,7 @@ input[type=password] {
 
 .continue-button {
   padding: 0.5em 1em;
-  background-color: #edd54d; /* Color modificado para mejor contraste */
+  background-color: #edd54d; 
   border: none;
   border-radius: 5px;
   cursor: pointer;

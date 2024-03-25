@@ -22,7 +22,7 @@ export default {
       this.$router.push('/register');
     },
     goToMainMenu() {
-      // Redirecciona directamente al menú principal (MainMenu.vue)
+      
       this.$router.push('/MainMenu');
     }
   }
@@ -49,10 +49,10 @@ export default {
 }
 
 .banner h1 {
-  font-size: 4rem; /* Ajusta el tamaño según sea necesario */
-  color: #ffffff; /* Suponiendo texto blanco */
+  font-size: 4rem; 
+  color: #ffffff; 
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto para una mejor legibilidad */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 .button-container {
@@ -63,10 +63,10 @@ export default {
 
 .login-button,
 .register-button {
-  background-color: #ffd700; /* Color amarillo para los botones */
+  background-color: #ffd700; 
   border: none;
-  border-radius: 20px; /* Esquinas redondeadas para los botones */
-  color: #000000; /* Texto negro en botones */
+  border-radius: 20px; 
+  color: #000000; 
   padding: 1rem 2rem;
   font-size: 1.5rem;
   cursor: pointer;
@@ -77,12 +77,11 @@ export default {
 
 .login-button:hover,
 .register-button:hover {
-  transform: scale(1.05); /* Ligeramente agrandar botones al pasar el mouse */
+  transform: scale(1.05); 
 }
 
 .temporal-button {
-  background-color: #4CAF50; /* Color distintivo para el botón temporal */
-  border: none;
+  background-color: #4CAF50; 
   border-radius: 20px;
   color: white;
   padding: 1rem 2rem;
@@ -95,7 +94,7 @@ export default {
 }
 
 .temporal-button:hover {
-  background-color: #66BB6A; /* Color al hacer hover */
+  background-color: #66BB6A; 
 }
 
 @media (max-width: 768px) {

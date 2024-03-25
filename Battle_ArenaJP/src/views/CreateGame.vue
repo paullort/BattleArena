@@ -45,7 +45,7 @@
         this.$router.push('/Pasarela-play');
       },
       submitForm() {
-        // Logic to handle form submission
+
         console.log('Creating game with:', this.gameName, this.rows, this.columns, this.health);
       },
       changeRows(amount) {
@@ -92,7 +92,6 @@
     cursor: pointer;
   }
   
-  /* Styles for the form and its elements */
   .form {
     margin-top: 2rem;
   }
@@ -122,7 +121,5 @@
     margin: 1rem 0;
   }
   
-  /* Additional styles for buttons and form elements */
-  /* ... */
   </style>
   

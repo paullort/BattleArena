@@ -46,7 +46,7 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-image: url('@/assets/IMATGESFONS/blue.png'); /* Asegúrate de que la ruta a la imagen es correcta */
+    background-image: url('@/assets/IMATGESFONS/blue.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -61,7 +61,7 @@
   
   .back-button {
     padding: 0.5em 1em;
-    background-color: #ffd700; /* Color de fondo amarillo para que coincida con la imagen */
+    background-color: #ffd700; 
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -87,7 +87,7 @@
   }
   
   .store-container button {
-    background-color: #ffd700; /* Yellow background for buttons */
+    background-color: #ffd700; 
     color: black;
     width: 200px;
     margin: 10px;
@@ -102,7 +102,7 @@
   }
   
   .store-container button:hover {
-    background-color: #ffea00; /* Color de fondo al hacer hover */
+    background-color: #ffea00; 
     align-items: center;
     justify-content: center;
     display: flex;

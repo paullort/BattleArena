@@ -9,7 +9,7 @@
       </aside>
       <section class="game-history">
         <ul>
-          <!-- Repite para cada partida jugada -->
+          <!-- Repetir per cada partida jugada -->
           <li>
             <span>(View game replay)</span>
             <button @click="viewReplay">SEE</button>
@@ -27,7 +27,7 @@
         this.$router.push('/Pasarela-play');
       },
       viewReplay(gameId) {
-        // Lógica para ver la repetición de una partida
+        
         console.log('Viewing replay for game:', gameId);
       }
     }
@@ -42,7 +42,7 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-image: url('@/assets/history-background.jpg'); /* Ajusta la ruta de tu imagen */
+    background-image: url('@/assets/history-background.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -58,15 +58,14 @@
   
   .back-button {
     padding: 0.5em 1em;
-    background-color: #ffd700; /* Color de fondo amarillo */
-    border: none;
+    background-color: #ffd700; 
     border-radius: 5px;
     cursor: pointer;
   }
   
   .win-percentage {
     background-color: yellow;
-    border: 2px solid red; /* Borde rojo como en tu imagen */
+    border: 2px solid red; 
     padding: 0.5em;
     margin: 1em;
   }
@@ -81,7 +80,7 @@
   }
   
   .game-history button {
-    background-color: #ffd700; /* Color de fondo amarillo para los botones */
+    background-color: #ffd700; 
     border: none;
     border-radius: 5px;
     padding: 0.5em 1em;
@@ -89,7 +88,7 @@
   }
   
   .game-history button:hover {
-    background-color: #ffea00; /* Color al hacer hover */
+    background-color: #ffea00; 
   }
   
   @media (max-width: 768px) {
