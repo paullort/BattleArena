@@ -1,13 +1,16 @@
 <template>
-  <main class="login-page">
-    <nav>
+  <main class="register-page">
+    <header>
       <button class="back-button" @click="goBack">⬅️ Back</button>
-    </nav>
+    </header>
     <section class="form-container">
-      <h1 class="form-title">LOGIN</h1>
-      <form @submit.prevent="submitLogin">
+      <h1 class="form-title">REGISTER FORM</h1>
+      <form @submit.prevent="submitForm">
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name">
         <input type="text" placeholder="Username" required>
         <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Repeat password" required>
         <button type="submit" class="continue-button">continue</button>
       </form>
     </section>
@@ -20,30 +23,42 @@ export default {
     goBack() {
       this.$router.go(-1);
     },
-    submitLogin() {
-      //lógica de inicio de sesión.
+    submitForm() {
+      // Aquí iría la lógica para procesar el formulario de registro.
     }
   }
 }
 </script>
 
 <style scoped>
-
-.login-page {
+.register-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  justify-content: center;
+  width: 100vw; 
+  height: 100vh; 
   background-image: url('@/assets/IMATGESFONS/pree.png'); 
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  align-items: center;
-  justify-content: center;
 }
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1em;
+}
+
+.back-button {
+    padding: 0.5em 1em;
+    background-color: #ffd700; 
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
 .form-container {
   background: rgba(255, 255, 255, 0.8);
@@ -53,16 +68,8 @@ export default {
 }
 
 .form-title {
-  background-color: #ffd700; 
-  color: black; 
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.form-label {
-  display: block;
+  color: #000;
   margin-bottom: 1em;
-  color: #333; 
 }
 
 input[type=text],
@@ -74,17 +81,17 @@ input[type=password] {
   border-radius: 5px;
 }
 
-
 .continue-button {
-  width: 100%;
-  padding: 0.5em;
-  background-color: #ffd700; 
+  padding: 0.5em 1em;
+  background-color: #edd54d; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 1em;
+  width: 100%;
 }
 
 .continue-button:hover {
-  opacity: 0.9;
+  background-color: #ffea00;
 }
-</style>
+</style >

@@ -49,7 +49,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding: 0px;
+    padding: 1em;
     width: 100%;
     display: flex;
     justify-content: space-between;

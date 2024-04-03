@@ -36,7 +36,7 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background: #fff; 
+    background: #000; 
     text-align: center;
   }
   
@@ -59,6 +59,7 @@
     margin-bottom: 1em;
     background-color: #ffd700;
     padding: 0.5em 1em; 
+    color: #000;
 
   }
   

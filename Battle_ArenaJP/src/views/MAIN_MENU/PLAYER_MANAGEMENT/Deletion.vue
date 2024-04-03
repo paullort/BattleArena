@@ -38,7 +38,8 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background: #fff; 
+    background-color: black;
+
     text-align: center;
   }
   
@@ -50,16 +51,19 @@
   }
   
   .back-button {
+    padding: 0.5em 1em;
     background-color: #ffd700; 
+    border: none;
     border-radius: 5px;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 1em;
   }
   
   .deletion-content h1 {
     margin-bottom: 1em;
     background-color: #ffd700; 
     padding: 0.5em 1em;
+    color: #000;
     
   }
   

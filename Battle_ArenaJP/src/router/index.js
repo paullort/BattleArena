@@ -12,82 +12,72 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/Login.vue')
+      component: () => import('../views/LOGIN/Login.vue')
     },
     {
       path: '/register',
       name: 'register',
-      component: () => import('../views/Register.vue')
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/REGISTER/Register.vue')
     },
     {
       path: '/MainMenu',
       name: 'MainMenu',
-      component: () => import('../views/MainMenu.vue')
+      component: () => import('../views/MAIN_MENU/MainMenu.vue')
     },
     {
       path: '/playerManagement',
       name: 'playerManagement',
-      component: () => import('../views/PlayerManagement.vue')
+      component: () => import('../views/MAIN_MENU/PLAYER_MANAGEMENT/PlayerManagement.vue')
     },
     {
       path: '/pasarela-play',
       name: 'pasarela-play',
-      component: () => import('../views/Pasarela-play.vue')
+      component: () => import('../views/MAIN_MENU/PLAY/Pasarela-play.vue')
     },
     {
       path: '/ranking',
       name: 'ranking',
-      component: () => import('../views/Ranking.vue')
+      component: () => import('../views/MAIN_MENU/RANKING/Ranking.vue')
     },
     {
       path: '/store',
       name: 'store',
-      component: () => import('../views/Store.vue')
+      component: () => import('../views/MAIN_MENU/STORE/Store.vue')
     },
     {
       path: '/createattack',
       name: 'createattack',
-      component: () => import('../views/createAttack.vue')
+      component: () => import('../views/MAIN_MENU/STORE/createAttack.vue')
     },
     {
       path: '/joinavailablegames',
       name: 'joinAvailableGames',
-      component: () => import('../views/JoinAvailableGames.vue')
+      component: () => import('../views/MAIN_MENU/PLAY/JoinAvailableGames.vue')
     },
     {
       path: '/creategame',
       name: 'createGame',
-      component: () => import('../views/CreateGame.vue')
+      component: () => import('../views/MAIN_MENU/PLAY/CreateGame.vue')
     },
     {
       path: '/history',
       name: 'history',
-      component: () => import('../views/History.vue')
+      component: () => import('../views/MAIN_MENU/PLAY/History.vue')
     },
     {
       path: '/playerinfo',
       name: 'playerinfo',
-      component: () => import('../views/PlayerInfo.vue')
-    },
-    {
-      path: '/modifyplayer',
-      name: 'modifyplayer',
-      component: () => import('../views/ModifyPlayer.vue')
+      component: () => import('../views/MAIN_MENU/PLAYER_MANAGEMENT/PlayerInfo.vue')
     },
     {
       path: '/deletion',
       name: 'deletion',
-      component: () => import('../views/Deletion.vue')
+      component: () => import('../views/MAIN_MENU/PLAYER_MANAGEMENT/Deletion.vue')
     },
     {
       path: '/popupdelete',
       name: 'popupdelete',
-      component: () => import('../views/PopUpDelete.vue')
+      component: () => import('../views/MAIN_MENU/PLAYER_MANAGEMENT/PopUpDelete.vue')
     }
 
   ]
