@@ -11,7 +11,7 @@
         <button @click="sellAttack">SELL ATTACK</button>
       </section>
     </main>
-  </template>
+</template>
   
   <script>
   export default {
@@ -27,12 +27,17 @@
       },
       equippedAttacks() {
         // Lógica para mostrar ataques equipados
+        this.$router.push('/equippedAttacks');
       },
       buyAttack() {
         // Lógica para comprar ataque
+        this.$router.push('/buyAttack');
+
       },
       sellAttack() {
         // Lógica para vender ataque
+        this.$router.push('/sellAttack');
+
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
-  <main class="home-page">
-    <article class="banner">
+  <div class="home-page">
+    <div class="banner">
       <h1>BATTLE ARENA</h1>
       <div class="button-container">
         <button class="login-button" @click="goToLogin">LOG IN</button>
@@ -8,8 +8,8 @@
         <!-- Botón TEMPORAL para desarrollo -->
         <button class="temporal-button" @click="goToMainMenu">TEMPORAL-on et portaria si estiguessis logejat</button>
       </div>
-    </article>
-  </main>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -41,7 +41,6 @@ export default {
   align-items: center;
   text-align: center;
   margin: 0px;
-  
 }
 .banner{
   border: 0px;
@@ -50,12 +49,10 @@ export default {
 }
 
 .banner h1 {
-  font-size: 5rem; 
-  font-weight: bold;
+  font-size: 4rem; 
   color: #ffffff; 
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-  
 }
 
 .button-container {

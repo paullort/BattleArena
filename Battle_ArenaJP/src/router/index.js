@@ -50,6 +50,21 @@ const router = createRouter({
       component: () => import('../views/MAIN_MENU/STORE/createAttack.vue')
     },
     {
+      path: '/buyattack',
+      name: 'buyattack',
+      component: () => import('../views/MAIN_MENU/STORE/buyAttack.vue')
+    },
+    {
+      path: '/equippedattacks',
+      name: 'equippedattacks',
+      component: () => import('../views/MAIN_MENU/STORE/equippedAttacks.vue')
+    },
+    {
+      path: '/sellattack',
+      name: 'sellattack',
+      component: () => import('../views/MAIN_MENU/STORE/sellAttack.vue')
+    },
+    {
       path: '/joinavailablegames',
       name: 'joinAvailableGames',
       component: () => import('../views/MAIN_MENU/PLAY/JoinAvailableGames.vue')
