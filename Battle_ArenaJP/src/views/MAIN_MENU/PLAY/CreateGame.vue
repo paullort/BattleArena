@@ -66,7 +66,7 @@
   .create-game-page {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: center;
     height: 100vh;
     width: 100vw;
@@ -74,7 +74,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    text-align: center;
+    text-align: left;
+    margin-left: 20rem;
   }
   
   header {
@@ -116,9 +117,9 @@
   
   .row-column-selector {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem 0;
+    align-items: left;
+    text-align: left;
+    justify-content: left;
   }
   
   </style>
