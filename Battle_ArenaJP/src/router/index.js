@@ -42,7 +42,7 @@ const router = createRouter({
     {
       path: '/store',
       name: 'store',
-      component: () => import('../views/MAIN_MENU/STORE/Store.vue')
+      component: () => import('../views/MAIN_MENU/STORE/shopStore.vue')
     },
     {
       path: '/createattack',
