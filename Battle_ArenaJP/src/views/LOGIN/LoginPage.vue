@@ -1,13 +1,13 @@
 <template>
   <main class="login-page">
     <header>
-        <button class="back-button" @click="goBack">⬅️ Back</button>
-      </header>
+      <button class="back-button" @click="goBack">⬅️ Back</button>
+    </header>
     <section class="form-container">
       <h1 class="form-title">LOGIN</h1>
       <form @submit.prevent="submitLogin">
-        <input type="text" placeholder="Username" required>
-        <input type="password" placeholder="Password" required>
+        <input v-model="playerID" type="text" placeholder="Player ID" required>
+        <input v-model="password" type="password" placeholder="Password" required>
         <button type="submit" class="continue-button">continue</button>
       </form>
     </section>
@@ -15,17 +15,47 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
+  data() {
+    return {
+      playerID: '',
+      password: '',
+    };
+  },
   methods: {
     goBack() {
       this.$router.go(-1);
     },
-    submitLogin() {
-      //lógica de inicio de sesión.
-    }
-  }
-}
+    async submitLogin() {
+      console.log('Player ID:', this.playerID);
+      console.log('Password:', this.password);
+      try {
+        const response = await axios.post('https://balandrau.salle.url.edu/i3/players/join', {
+          player_ID: this.playerID,
+          password: this.password,
+        });
+
+        localStorage.setItem('token', response.data.token);
+        axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
+        
+        if (error.response && error.response.status === 400) {
+          console.error('Error instance:', error.response.data.error);
+        } else {
+          // Handle other errors
+          console.error('Error:', error);
+        }
+        // Redirect or show success message
+        this.$router.push('/somewhere');
+      } catch (error) {
+        
+      }
+    },
+  },
+};
 </script>
+
 
 <style scoped>
 
