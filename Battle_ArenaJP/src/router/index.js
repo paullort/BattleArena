@@ -12,12 +12,12 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/LOGIN/Login.vue')
+      component: () => import('../views/LOGIN/LoginPage.vue')
     },
     {
       path: '/register',
       name: 'register',
-      component: () => import('../views/REGISTER/Register.vue')
+      component: () => import('../views/REGISTER/RegisterPage.vue')
     },
     {
       path: '/MainMenu',
@@ -37,7 +37,7 @@ const router = createRouter({
     {
       path: '/ranking',
       name: 'ranking',
-      component: () => import('../views/MAIN_MENU/RANKING/Ranking.vue')
+      component: () => import('../views/MAIN_MENU/RANKING/RankingPage.vue')
     },
     {
       path: '/store',
@@ -77,7 +77,7 @@ const router = createRouter({
     {
       path: '/history',
       name: 'history',
-      component: () => import('../views/MAIN_MENU/PLAY/History.vue')
+      component: () => import('../views/MAIN_MENU/PLAY/HistoryPage.vue')
     },
     {
       path: '/playerinfo',
@@ -87,7 +87,7 @@ const router = createRouter({
     {
       path: '/deletion',
       name: 'deletion',
-      component: () => import('../views/MAIN_MENU/PLAYER_MANAGEMENT/Deletion.vue')
+      component: () => import('../views/MAIN_MENU/PLAYER_MANAGEMENT/DeletionPage.vue')
     },
     {
       path: '/popupdelete',

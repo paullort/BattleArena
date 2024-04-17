@@ -73,7 +73,8 @@
   }
   
   .deletion-content img {
-    
+    width: 100%;
+    border-radius: 10px;
   }
   
   .deletion-content p {
