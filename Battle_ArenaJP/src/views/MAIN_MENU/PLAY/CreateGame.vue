@@ -112,6 +112,7 @@ header {
   }
 
 .create-game-page {
+  margin-top: 3em;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -141,6 +142,7 @@ header {
   font-size: 0.8em; /* Ajusta el tamaño del texto del input */
   padding: 0.3em; /* Añade espacio alrededor del texto dentro del input */
   margin-bottom: 1rem;
+  color : white;
 }
 
 #health{
@@ -153,6 +155,7 @@ header {
   display: flex;
   align-items: center; /* Alinear verticalmente los elementos */
   justify-content: center; /* Centrar horizontalmente los elementos */
+  color: white;
 }
 .row-column-selector button {
   font-size: 1rem; /* Ajusta el tamaño del texto de los botones + y - */
@@ -164,6 +167,7 @@ header {
 h1 {
   margin-top: 10vh;
   font-size: 3.3rem;
+  color: white;
 }
 
 .grid-container {
@@ -189,10 +193,18 @@ h1 {
   border: 1px solid #999; /* Adjust as needed */
 }
 
-.submit{
+.submit button{
   font-size: 0.8em; /* Ajusta el tamaño del texto del input */
   padding: 0.3em; /* Añade espacio alrededor del texto dentro del input */
-  margin-bottom: 1rem;
+
+  padding: 0.5em 1em;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #433;
+  font-weight: bold;
+  font-size: 1em;
 }
 
 

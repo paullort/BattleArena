@@ -72,11 +72,9 @@ header {
   top: 0;
   left: 0;
   padding: 1em;
-  background-color: #333;
   color: #fff;
   width: 100%;
   text-align: left;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .back-button {
@@ -152,7 +150,7 @@ header {
   cursor: pointer;
   color: #433;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 .games-list button:hover {

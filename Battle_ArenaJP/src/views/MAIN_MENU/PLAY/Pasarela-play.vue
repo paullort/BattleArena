@@ -87,8 +87,8 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
-    font-size: 3em;
-    font: ;
+    font-size: 3.5em;
+    font-family: sans-serif;
   }
   
  .menu-items {
