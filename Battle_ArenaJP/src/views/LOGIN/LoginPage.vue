@@ -5,6 +5,7 @@
     </header>
     <section class="form-container">
       <h1 class="form-title">LOGIN</h1>
+      <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
       <form @submit.prevent="submitLogin">
         <input v-model="playerID" type="text" placeholder="Player ID" required>
         <input v-model="password" type="password" placeholder="Password" required>
@@ -22,6 +23,7 @@ export default {
     return {
       playerID: '',
       password: '',
+      errorMessage: '',
     };
   },
   methods: {
@@ -39,26 +41,23 @@ export default {
 
         localStorage.setItem('token', response.data.token);
         axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
-        
-        if (error.response && error.response.status === 400) {
-          console.error('Error instance:', error.response.data.error);
+
+        if (response.status === 400) {
+          console.error('Error instance:', response.data.error);
+          this.errorMessage = response.data.error.message;
         } else {
-          // Handle other errors
-          console.error('Error:', error);
+          this.$router.push('/MainMenu');
         }
-        // Redirect or show success message
-        this.$router.push('/somewhere');
       } catch (error) {
-        
+        console.error('Error:', error);
+        this.errorMessage = 'Error connecting to the API';
       }
     },
   },
 };
 </script>
 
-
 <style scoped>
-
 .login-page {
   display: flex;
   flex-direction: column;
@@ -66,7 +65,7 @@ export default {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-image: url('@/assets/IMATGESFONS/pree.png'); 
+  background-image: url('@/assets/IMATGESFONS/pree.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -81,7 +80,7 @@ header {
 
 .back-button {
     padding: 0.5em 1em;
-    background-color: #ffd700; 
+    background-color: #ffd700;
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -95,8 +94,8 @@ header {
 }
 
 .form-title {
-  background-color: #ffd700; 
-  color: black; 
+  background-color: #ffd700;
+  color: black;
   padding: 10px;
   margin-bottom: 20px;
 }
@@ -104,7 +103,7 @@ header {
 .form-label {
   display: block;
   margin-bottom: 1em;
-  color: #333; 
+  color: #333;
 }
 
 input[type=text],
@@ -116,11 +115,10 @@ input[type=password] {
   border-radius: 5px;
 }
 
-
 .continue-button {
   width: 100%;
   padding: 0.5em;
-  background-color: #ffd700; 
+  background-color: #ffd700;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -128,5 +126,11 @@ input[type=password] {
 
 .continue-button:hover {
   opacity: 0.9;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 1em;
 }
 </style>

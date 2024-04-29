@@ -6,28 +6,52 @@
     <section class="form-container">
       <h1 class="form-title">REGISTER FORM</h1>
       <form @submit.prevent="submitForm">
-        <input type="text" placeholder="First Name" required>
-        <input type="text" placeholder="Last Name">
-        <input type="text" placeholder="Username" required>
-        <input type="password" placeholder="Password" required>
-        <input type="password" placeholder="Repeat password" required>
+        <input v-model="playerID" type="text" placeholder="Player ID" required>
+        <input v-model="password" type="password" placeholder="Password" required>
+        <input v-model="img" type="text" placeholder="Image URL" required>
         <button type="submit" class="continue-button">continue</button>
       </form>
+      <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
     </section>
   </main>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
+  data() {
+    return {
+      playerID: '',
+      password: '',
+      img: '',
+      errorMessage: '',
+    };
+  },
   methods: {
     goBack() {
       this.$router.go(-1);
     },
-    submitForm() {
-      // Aquí iría la lógica para procesar el formulario de registro.
-    }
-  }
-}
+    async submitForm() {
+      try {
+        const response = await axios.post('https://balandrau.salle.url.edu/i3/players', {
+          player_ID: this.playerID,
+          password: this.password,
+          img: this.img,
+        });
+        if (response.status === 201) {
+          this.$router.push('/login');
+        }
+      } catch (error) {
+        if (error.response && error.response.status === 400) {
+          this.errorMessage = error.response.data.error.message;
+        } else {
+          this.errorMessage = 'An error occurred. Please try again later.';
+        }
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -36,9 +60,9 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw; 
-  height: 100vh; 
-  background-image: url('@/assets/IMATGESFONS/pree.png'); 
+  width: 100vw;
+  height: 100vh;
+  background-image: url('@/assets/IMATGESFONS/pree.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -53,7 +77,7 @@ header {
 
 .back-button {
     padding: 0.5em 1em;
-    background-color: #ffd700; 
+    background-color: #ffd700;
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -83,7 +107,7 @@ input[type=password] {
 
 .continue-button {
   padding: 0.5em 1em;
-  background-color: #edd54d; 
+  background-color: #edd54d;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -94,4 +118,9 @@ input[type=password] {
 .continue-button:hover {
   background-color: #ffea00;
 }
-</style >
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+</style>
