@@ -40,8 +40,8 @@ export default {
         localStorage.setItem('token', response.data.token);
         axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
         
-        if (error.response && error.response.status === 400) {
-          console.error('Error instance:', error.response.data.error);
+        if (response && response.status === 400) {
+          console.error('Error instance:', response.data.error);
         } else {
           // Handle other errors
           console.error('Error:', error);
