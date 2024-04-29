@@ -2,6 +2,7 @@
   <main class="create-game-page">
     <header>
       <button class="back-button" @click="goBack">⬅️ Back</button>
+      <button class="home-button" @click="goHome">🏠 Home</button>
     </header>
     <div class="container">
       <div class="content">
@@ -60,6 +61,9 @@ export default {
     goBack() {
       this.$router.push('/Pasarela-play');
     },
+    goHome() {
+        this.$router.push('/'); // or any other route you want to navigate to
+      },
     submitForm() {
       console.log('Creating game with:', this.gameName, this.rows, this.columns, this.health);
     },
@@ -78,15 +82,34 @@ export default {
 </script>
 
 <style scoped>
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1em;
+  }
+  
 .back-button {
+  padding: 0.5em 1em;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  font-size: 1.2em;
+}
+.home-button {
     padding: 0.5em 1em;
     background-color: #ffd700;
     border: none;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    color: #333;
+    font-size: 1.2em;
+    margin-left: 10px; /* add some margin to separate from the back button */
   }
-  
 
 .create-game-page {
   display: flex;

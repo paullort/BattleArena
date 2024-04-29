@@ -2,6 +2,7 @@
     <main class="pasarela-play">
       <header>
         <button class="back-button" @click="goBack">⬅️ Back</button>
+        <button class="home-button" @click="goHome">🏠 Home</button>
       </header>
       <section class="buttons-container">
         <h1>PLAY</h1>
@@ -19,6 +20,9 @@
       goBack() {
         
         this.$router.push('/MainMenu');
+      },
+      goHome() {
+        this.$router.push('/'); // or any other route you want to navigate to
       },
       availableGames() {
         
@@ -61,12 +65,25 @@
   }
   
   .back-button {
+  padding: 0.5em 1em;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  font-size: 1.2em;
+}
+.home-button {
     padding: 0.5em 1em;
     background-color: #ffd700;
     border: none;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    color: #333;
+    font-size: 1.2em;
+    margin-left: 10px; /* add some margin to separate from the back button */
   }
   
   .buttons-container h1 {
