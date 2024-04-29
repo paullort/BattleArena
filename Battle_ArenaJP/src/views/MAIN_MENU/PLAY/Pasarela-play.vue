@@ -1,58 +1,51 @@
 <template>
-    <main class="pasarela-play">
-      <header>
-        <button class="back-button" @click="goBack">⬅️ Back</button>
-        <button class="home-button" @click="goHome">🏠 Home</button>
-      </header>
-      <section class="buttons-container">
-        <h1>PLAY</h1>
+  <main class="pasarela-play">
+    <header>
+      <button class="back-button" @click="goBack">⬅️ Back</button>
+      <button class="home-button" @click="goHome">🏠 Home</button>
+    </header>
+    <section class="menu-container">
+      <h1>PLAY</h1>
+      <nav class="menu-items">
         <button @click="availableGames">Available Games</button>
         <button @click="createGame">Create Game</button>
         <button @click="viewHistory">View History</button>
-      </section>
-    </main>
-    
+      </nav>
+    </section>
+  </main>
 </template>
-  
+
 <script>
   export default {
     methods: {
       goBack() {
-        
         this.$router.push('/MainMenu');
       },
       goHome() {
         this.$router.push('/'); // or any other route you want to navigate to
       },
       availableGames() {
-        
         this.$router.push('/JoinAvailableGames');
-
       },
       createGame() {
-        
         this.$router.push('/CreateGame');
-
       },
       viewHistory() {
-        
         this.$router.push('/History');
-
       }
     }
   }
 </script>
-  
+
 <style scoped>
-  .pasarela-play {
+ .pasarela-play {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-image: url('@/assets/IMATGESFONS/blue.png'); 
     height: 100vh;
     width: 100vw;
-    background-image: url('@/assets/IMATGESFONS/blue.png');
-    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -64,17 +57,17 @@
     padding: 1em;
   }
   
-  .back-button {
-  padding: 0.5em 1em;
-  background-color: #ffd700;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #333;
-  font-size: 1.2em;
-}
-.home-button {
+ .back-button {
+    padding: 0.5em 1em;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    font-size: 1.2em;
+  }
+ .home-button {
     padding: 0.5em 1em;
     background-color: #ffd700;
     border: none;
@@ -86,41 +79,47 @@
     margin-left: 10px; /* add some margin to separate from the back button */
   }
   
-  .buttons-container h1 {
+ .menu-container h1 {
     color: white;
-    font-size: 100px;
-    font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
+    font-size: 3em;
+    font: ;
   }
   
-  section button {
+ .menu-items {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+  }
+  
+ .menu-items button {
     background-color: #ffd700; 
     color: black;
     margin: 10px;
-    padding: 10px 20px;
+    padding: 20px 20px;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight:500;
     cursor: pointer;
     text-transform: uppercase;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
   }
   
-  section button:hover {
+ .menu-items button:hover {
     background-color: #ffea00; 
   }
   
   @media (max-width: 768px) {
-    section button {
+   .menu-items button {
       padding: 0.5em 1em;
       font-size: 1em;
     }
   }
 </style>
-  
