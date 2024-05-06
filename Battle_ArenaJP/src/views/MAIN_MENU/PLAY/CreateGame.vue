@@ -136,10 +136,11 @@ header {
   margin-right: 5vw;
   text-align: center;
   font-size: 2rem;
+  color : white;
 }
 
 #game-name {
-  font-size: 0.8em; /* Ajusta el tamaño del texto del input */
+  font-size: 0.7em; /* Ajusta el tamaño del texto del input */
   padding: 0.3em; /* Añade espacio alrededor del texto dentro del input */
   margin-bottom: 1rem;
   color : white;
