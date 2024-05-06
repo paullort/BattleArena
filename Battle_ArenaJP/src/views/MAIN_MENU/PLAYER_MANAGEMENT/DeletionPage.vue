@@ -69,7 +69,7 @@
   
   .deletion-content figure {
     margin: 1em;
-    
+
   }
   
   .deletion-content img {

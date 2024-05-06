@@ -38,8 +38,21 @@ export default {
           player_ID: this.playerID,
           password: this.password,
         });
+        if (response.status === 200) {
+      const { player_ID, password, img, xp, level, coins, token } = response.data;
+      console.log({
+        player_ID,
+        password,
+        img,
+        xp,
+        level,
+        coins,
+        token
+      });
+    }
 
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user', response.data.player_ID);
         axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
 
         if (response.status === 400) {

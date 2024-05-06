@@ -41,6 +41,7 @@ export default {
         });
         if (response.status === 201) {
           this.$router.push('/login');
+          
         }
       } catch (error) {
         if (error.response && error.response.status === 400) {
