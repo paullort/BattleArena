@@ -2,15 +2,10 @@
   <main class="ranking-page">
     <header>
       <button class="back-button" @click="goBack">⬅️ Back</button>
-      
     </header>
-    <section class="search-section">
-      <input type="text" v-model="searchQuery" placeholder="Search players" aria-label="Search players">
-      <button @click="sortPlayers">Sort</button>
-    </section>
     <section class="ranking-list">
       <ul>
-        <li v-for="(player, index) in sortedPlayers" :key="player.id">
+        <li v-for="(player, index) in players" :key="player.player_ID">
           <span class="rank">{{ index + 1 }}</span>
           <span class="player-name">{{ player.name }}</span>
           <span class="player-xp">{{ player.xp }} XP</span>
@@ -21,35 +16,45 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      players: [
-        { id: 1, name: "JoanMedina", xp: 1000 },
-        { id: 2, name: "Pau", xp: 800 },
-        { id: 3, name: "JanGarcia", xp: 1200 },
-        { id: 4, name: "VegettaGaymer", xp: 900 },
-        { id: 5, name: "Willyrex", xp: 1100 },
-        // Add more players here
-      ],
-      searchQuery: ''
+      players: []
     }
   },
-  computed: {
-    sortedPlayers() {
-      return this.players.filter(player => player.name.toLowerCase().includes(this.searchQuery.toLowerCase())).sort((a, b) => b.xp - a.xp);
-    }
+  mounted() {
+    // Hacer la solicitud a la API cuando el componente se monte
+    this.fetchPlayers();
   },
   methods: {
     goBack() {
       this.$router.push('/MainMenu');
     },
-    sortPlayers() {
-      // No need to implement sorting logic here, as it's already done in the computed property
+    fetchPlayers() {
+      const token = localStorage.getItem('token');
+      console.log('Token:', token);
+
+      // Hacer la solicitud GET a la API para obtener los jugadores
+      axios.get('/players', {
+        headers: {
+          Bearer: token, // diu dani "Bearer" en contes de "Authorization"
+            'Content-Type': 'application/json',
+        }
+      })
+      .then(response => {
+        // Almacenar los datos de los jugadores en el estado del componente
+        this.players = response.data;
+      })
+      .catch(error => {
+        console.error('Error fetching players:', error);
+      });
     }
   }
 }
 </script>
+
 
 <style scoped>
 .ranking-page {

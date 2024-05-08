@@ -74,41 +74,7 @@ export default {
     });
   }
   };
-  /*methods: {
-    goBack() {
-      this.$router.push('/PlayerManagement');
-    },
-    modify(attribute) {
-      console.log(`Modify ${attribute}`);
-    },
-    async getPlayerInfo() {
-      const playerId = this.$route.params.playerId; // suposant que ID del jugador esta en els params de la ruta
-      console.log('Player ID:', playerId); 
-
-      const token = localStorage.getItem('token');
-      if (!playerId || !token) {
-        // error: ID del jugador o token no disponibles
-        return;
-      }
-      try {
-        const response = await axios.get(`https://balandrau.salle.url.edu/i3/players/${playerId}`, {
-          headers: {
-            Bearer: token, // diu dani "Bearer" en contes de "Authorization"
-            'Content-Type': 'application/json',
-          },
-        });
-        console.log('Información del jugador:', response.data); // Registrar la informació del jugador
-        this.player = response.data;
-      } catch (error) {
-        console.error(error);
-      }
-    },
-  },
-  mounted() {
-    this.getPlayerInfo();
-  },
-};
-*/
+  
 </script>
 
 <style>
