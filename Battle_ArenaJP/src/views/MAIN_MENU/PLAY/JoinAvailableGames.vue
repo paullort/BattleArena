@@ -9,9 +9,9 @@
       <p>Here are available games to Join</p>
       <ul>
         <li v-for="(game, index) in games" :key="index">
-          <span>{{ game.name }}</span>
-          <button @click="joinGame(game.id)" :disabled="joiningGame">
-            {{ joiningGame? 'Joining...' : 'JOIN' }}
+          <span>{{ game.game_ID }}</span> <!-- Assuming game_ID is the unique identifier -->
+          <button @click="joinGame(game.game_ID)" :disabled="joiningGame">
+            {{ joiningGame ? 'Joining...' : 'JOIN' }}
           </button>
         </li>
       </ul>
@@ -20,25 +20,38 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      games: [
-        { id: 1, name: 'Game 1' },
-        { id: 2, name: 'Game 2' },
-        // Add more games here
-      ],
+      games: [],
       joiningGame: false,
     };
   },
+  created() {
+    this.fetchGames();
+  },
   methods: {
+    async fetchGames() {
+  try {
+    const response = await axios.get('http://balandrau.salle.url.edu/arenas', {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Accept': 'application/json'
+      }
+    });
+    this.games = response.data; // Cambiar response por response.data
+  } catch (error) {
+    console.error('Error fetching games:', error);
+  }
+},
     goBack() {
-      // Navega pantalla anterior
       this.$router.push('/Pasarela-play');
     },
     goHome() {
-        this.$router.push('/'); // or any other route you want to navigate to
-      },
+      this.$router.push('/');
+    },
     joinGame(gameId) {
       this.joiningGame = true;
       console.log('Joining game:', gameId);
