@@ -45,6 +45,7 @@ export default {
       })
       .then(response => {
         // Almacenar los datos de los jugadores en el estado del componente
+        console.log('Players:', response.data);
         this.players = response.data;
       })
       .catch(error => {
@@ -65,6 +66,7 @@ export default {
   height: 100vh;
   width: 100vw;
   background-image: url('@/assets/IMATGESFONS/blue.png');
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
