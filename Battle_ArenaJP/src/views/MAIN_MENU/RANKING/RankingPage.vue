@@ -7,10 +7,11 @@
       <ul>
         <li v-for="(player, index) in players" :key="player.player_ID">
           <span class="rank">{{ index + 1 }}</span>
-          <span class="player-name">{{ player.name }}</span>
+          <span class="player-name">{{ player.player_ID }}</span>
           <span class="player-xp">{{ player.xp }} XP</span>
         </li>
       </ul>
+      <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
     </section>
   </main>
 </template>
@@ -21,41 +22,47 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      players: []
+      players: [],
+      errorMessage: ''
     }
   },
   mounted() {
-    // Hacer la solicitud a la API cuando el componente se monte
+    // fer solicitud a la API quan el component es monta
     this.fetchPlayers();
   },
   methods: {
     goBack() {
       this.$router.push('/MainMenu');
     },
-    fetchPlayers() {
-      const token = localStorage.getItem('token');
-      console.log('Token:', token);
+    async fetchPlayers() {
+      try {
+        const token = localStorage.getItem('token');
+        console.log('Token:', token);
 
-      // Hacer la solicitud GET a la API para obtener los jugadores
-      axios.get('/players', {
-        headers: {
-          Bearer: token, // diu dani "Bearer" en contes de "Authorization"
-            'Content-Type': 'application/json',
+        // solicitud GET a la API per obtenir els jugadors
+        const response = await axios.get('https://balandrau.salle.url.edu/i3/players', {
+          headers: {
+            'Bearer': `${token}`,
+            'Accept': 'application/json'
+          }
+        });
+
+        // Verifico si la conte datos JSON
+        if (response.headers['content-type'] && response.headers['content-type'].includes('application/json')) {
+          // emmagatzemar les dades dels jugadors en l'estado del component
+          console.log('Players:', response.data);
+          this.players = response.data;
+        } else {
+          console.error('Error: La respuesta no contiene datos JSON');
         }
-      })
-      .then(response => {
-        // Almacenar los datos de los jugadores en el estado del componente
-        console.log('Players:', response.data);
-        this.players = response.data;
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('Error fetching players:', error);
-      });
+        this.errorMessage = 'Error fetching players: ' + error.message;
+      }
     }
   }
 }
 </script>
-
 
 <style scoped>
 .ranking-page {
@@ -79,13 +86,6 @@ header {
     padding: 1em;
   }
 
-.h1 {
-  font-size: 36px;
-  color: #fff;
-  text-align: center;
-  margin-top: 20px;
-}
-
 .back-button {
   padding: 0.5em 1em;
   background-color: #ffd700;
@@ -97,32 +97,9 @@ header {
   font-size: 1.2em;
 }
 
-.search-section {
-  display: flex;
-  justify-content: center;
-  width: 100vw;
-  margin-top: 20px;
-}
-
-.search-section input {
-  padding: 0.5em;
-  padding-right: 200px;
-  margin-right: 0.5em;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-}
-
-.search-section button {
-  padding: 0.5em 1em;
-  background-color: #ffd700;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .ranking-list {
   margin-top: 20px;
+  overflow-y: auto;
 }
 
 .ranking-list ul {
