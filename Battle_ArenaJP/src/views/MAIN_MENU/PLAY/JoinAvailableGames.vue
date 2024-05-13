@@ -9,7 +9,10 @@
       <p>Here are available games to Join</p>
       <ul>
         <li v-for="(game, index) in games" :key="index">
-          <span>{{ game.game_ID }}</span> <!-- Assuming game_ID is the unique identifier -->
+          <span>{{ game.game_ID }}</span>
+          <span v-for="(playerg, k) in game.players_games" :key="k">
+            {{ playerg.player_ID }}
+          </span>
           <button @click="joinGame(game.game_ID)" :disabled="joiningGame">
             {{ joiningGame ? 'Joining...' : 'JOIN' }}
           </button>
@@ -19,6 +22,7 @@
   </main>
 </template>
 
+
 <script>
 import axios from 'axios';
 
@@ -26,23 +30,50 @@ export default {
   data() {
     return {
       games: [],
+      imgs: [],
       joiningGame: false,
     };
   },
-  created() {
+  mounted() {
     this.fetchGames();
+    this.fetchImg();
   },
   methods: {
     async fetchGames() {
   try {
-    const response = await axios.get('http://balandrau.salle.url.edu/arenas', {
+    const token = localStorage.getItem('token');
+    const response = await axios.get('https://balandrau.salle.url.edu/i3/arenas', {
       headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Bearer': `${token}`,
         'Accept': 'application/json'
       }
     });
-    this.games = response.data; // Cambiar response por response.data
-  } catch (error) {
+    if (response.headers['content-type'] && response.headers['content-type'].includes('application/json')) {
+          // emmagatzemar les dades dels jugadors en l'estado del component
+          console.log('Players:', response.data);
+          this.games = response.data;
+        } else {
+          console.error('Error: La respuesta no contiene datos JSON');
+        }  } catch (error) {
+    console.error('Error fetching games:', error);
+  }
+},
+async fetchImg() {
+  try {
+    const token = localStorage.getItem('token');
+    const response = await axios.get('https://balandrau.salle.url.edu/i3/arenas', {
+      headers: {
+        'Bearer': `${token}`,
+        'Accept': 'application/json'
+      }
+    });
+    if (response.headers['content-type'] && response.headers['content-type'].includes('application/json')) {
+          // emmagatzemar les dades dels jugadors en l'estado del component
+          console.log('Players:', response.data);
+          this.games = response.data;
+        } else {
+          console.error('Error: La respuesta no contiene datos JSON');
+        }  } catch (error) {
     console.error('Error fetching games:', error);
   }
 },
@@ -118,8 +149,10 @@ header {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   width: 80%;
+  height: 80%;
   margin: 0 auto;
   text-align: center;
+  overflow-y:auto;
 }
 
 .games-list h1 {
