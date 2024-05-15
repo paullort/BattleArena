@@ -60,7 +60,7 @@ export default {
     const user = localStorage.getItem('user');
     const img = localStorage.getItem('img');
     //const img = localStorage.getItem('img');
-    const apiURL = https://balandrau.salle.url.edu/i3/players/+user;
+    const apiURL = 'https://balandrau.salle.url.edu/i3/players/+user';
     
     
     const headers ={

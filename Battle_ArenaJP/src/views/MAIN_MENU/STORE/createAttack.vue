@@ -49,7 +49,7 @@ export default {
   methods: {
     goBack() {
       // Navega pantalla anterior
-      this.$router.push('/Pasarela-play');
+      this.$router.push('/Store');
     },
     goHome() {
       this.$router.push('/'); // or any other route you want to navigate to

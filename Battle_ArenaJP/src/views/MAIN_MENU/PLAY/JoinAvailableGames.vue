@@ -61,7 +61,7 @@ export default {
 async fetchImg() {
   try {
     const token = localStorage.getItem('token');
-    const response = await axios.get('https://balandrau.salle.url.edu/i3/arenas', {
+    const response = await axios.get('https://balandrau.salle.url.edu/i3/players/', {
       headers: {
         'Bearer': `${token}`,
         'Accept': 'application/json'
@@ -154,6 +154,16 @@ header {
   text-align: center;
   overflow-y:auto;
 }
+.games-list::-webkit-scrollbar {
+  display: none;
+}
+.games-list {
+  -ms-overflow-style: none;
+}
+.games-list {
+  scrollbar-width: none;
+}
+
 
 .games-list h1 {
   color: #ffd700;
