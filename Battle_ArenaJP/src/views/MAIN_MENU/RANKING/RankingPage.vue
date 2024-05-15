@@ -1,7 +1,7 @@
 <template>
   <main class="ranking-page">
-    <SearchBar />
-    <PlayerList :players="players" :errorMessage="errorMessage" />
+    <SearchBar @search-updated="filterPlayers" />
+    <PlayerList :players="filteredPlayers" :errorMessage="errorMessage" />
   </main>
 </template>
 
@@ -18,6 +18,7 @@ export default {
   data() {
     return {
       players: [],
+      filteredPlayers: [],
       errorMessage: ''
     };
   },
@@ -36,13 +37,21 @@ export default {
         });
         if (response.headers['content-type'] && response.headers['content-type'].includes('application/json')) {
           this.players = response.data;
+          this.filteredPlayers = response.data;
         } else {
-          console.error('Error: La respuesta no contiene datos JSON');
           this.errorMessage = 'Error: La respuesta no contiene datos JSON';
         }
       } catch (error) {
-        console.error('Error fetching players:', error);
         this.errorMessage = 'Error fetching players: ' + error.message;
+      }
+    },
+    filterPlayers(searchTerm) {
+      if (!searchTerm) {
+        this.filteredPlayers = this.players;
+      } else {
+        this.filteredPlayers = this.players.filter(player =>
+          player.player_ID.toLowerCase().includes(searchTerm.toLowerCase())
+        );
       }
     }
   }
