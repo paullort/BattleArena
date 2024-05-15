@@ -1,95 +1,116 @@
 <template>
-    <main class="equiped-attack-page">
-      <header>
-        <button class="back-button" @click="goBack">⬅️ Back</button>
-        <button class="home-button" @click="goHome">🏠 Home</button>
-      </header>
-      <section class="attack-list">
-        <h1>Equiped Attacks</h1>
-        <ul class="attack-grid">
-          <li v-for="(attack, index) in attacks" :key="index" :class="['attack-item', `power-${attack.power}`]">
-            <div class="attack-name">{{ attack.attack_ID }}</div>
-            <div class="positions">Positions: {{ attack.positions }}</div>
-            <div class="attack-details">
-                <div class="attack-power">Power: {{ attack.power }}</div>
-                <div class="attack-price">Price: {{ attack.price }}</div>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </main>
-  </template>
-  
-  <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        attacks: [],
-        imgs: [],
-        joiningGame: false,
-      };
-    },
-    mounted() {
-      this.fetchAttacks();
-      this.fetchImg();
-    },
-    methods: {
-      async fetchAttacks() {
-        try {
-          const token = localStorage.getItem('token');
-          const response = await axios.get('https://balandrau.salle.url.edu/i3/shop/attacks', {
-            headers: {
-              'Bearer': `${token}`,
-              'Accept': 'application/json'
-            }
-          });
-          if (response.headers['content-type'] && response.headers['content-type'].includes('application/json')) {
-            console.log('Players:', response.data);
-            this.attacks = response.data;
-          } else {
-            console.error('Error: La respuesta no contiene datos JSON');
+  <main class="equiped-attack-page">
+    <header>
+      <button class="back-button" @click="goBack">⬅️ Back</button>
+      <button class="home-button" @click="goHome">🏠 Home</button>
+    </header>
+    <section class="attack-list">
+      <h1>Equiped Attacks</h1>
+      <ul class="equipped-attack-grid">
+        <li v-for="(attack, index) in equippedAttacks" :key="index" :class="['attack-item', `power-${attack.power}`]" @click="unequipAttack(attack)">
+          <div class="attack-name">{{ attack.attack_ID }}</div>
+          <div class="positions">Positions: {{ attack.positions }}</div>
+          <div class="attack-power">Power: {{ attack.power }}</div>
+        </li>
+      </ul>
+      <h1>Available Attacks</h1>
+      <ul class="attack-grid">
+        <li v-for="(attack, index) in attacks" :key="index" :class="['attack-item', `power-${attack.power}`]" @click="equipAttack(attack)">
+          <div class="attack-name">{{ attack.attack_ID }}</div>
+          <div class="positions">Positions: {{ attack.positions }}</div>
+          <div class="attack-power">Power: {{ attack.power }}</div>
+        </li>
+      </ul>
+    </section>
+  </main>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      attacks: [],
+      equippedAttacks: [],
+      imgs: [],
+      joiningGame: false,
+    };
+  },
+  mounted() {
+    this.fetchAttacks();
+  },
+  methods: {
+    async fetchAttacks() {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await axios.get('https://balandrau.salle.url.edu/i3/players/attacks', {
+          headers: {
+            'Bearer': `${token}`,
+            'Accept': 'application/json'
           }
-        } catch (error) {
-          console.error('Error fetching attacks:', error);
+        });
+        if (response.headers['content-type'] && response.headers['content-type'].includes('application/json')) {
+          console.log('Players:', response.data);
+          this.equippedAttacks = response.data.filter(attack => attack.equipped === true);
+          this.attacks = response.data.filter(attack => attack.equipped === false);
+        } else {
+          console.error('Error: La respuesta no contiene datos JSON');
         }
-      },
-      async fetchImg() {
-        try {
-          const token = localStorage.getItem('token');
-          const response = await axios.get('https://balandrau.salle.url.edu/i3/players/', {
-            headers: {
-              'Bearer': `${token}`,
-              'Accept': 'application/json'
-            }
-          });
-          if (response.headers['content-type'] && response.headers['content-type'].includes('application/json')) {
-            console.log('Players:', response.data);
-            this.games = response.data;
-          } else {
-            console.error('Error: La respuesta no contiene datos JSON');
-          }
-        } catch (error) {
-          console.error('Error fetching games:', error);
-        }
-      },
-      goBack() {
-        this.$router.push('/Store');
-      },
-      goHome() {
-        this.$router.push('/');
-      },
-      joinGame(gameId) {
-        this.joiningGame = true;
-        console.log('Joining game:', gameId);
-        setTimeout(() => {
-          this.joiningGame = false;
-        }, 2000);
-      },
+      } catch (error) {
+        console.error('Error fetching attacks:', error);
+      }
     },
-  };
-  </script>
+    async equipAttack(attack) {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await axios.post(`https://balandrau.salle.url.edu/i3/players/attacks/${attack.attack_ID}`, null, {
+          headers: {
+            'Bearer': `${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        if (response.status === 200) {
+          console.log('Attack equipped:', response.data);
+          // Actualizar la lista de ataques después de equipar uno
+          this.fetchAttacks();
+        } else {
+          console.error('Failed to equip attack:', response.data);
+          this.fetchAttacks();
+        }
+      } catch (error) {
+        console.error('Error equipping attack:', error);
+      }
+    },
+    async unequipAttack(attack) {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await axios.delete(`https://balandrau.salle.url.edu/i3/players/attacks/${attack.attack_ID}`, {
+          headers: {
+            'Bearer': `${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        if (response.status === 204) {
+          console.log('Attack unequipped:', response.data);
+          // Actualizar la lista de ataques después de equipar uno
+          this.fetchAttacks();
+        } else {
+          console.error('Failed to unequip attack:', response.data);
+        }
+      } catch (error) {
+        console.error('Error unequipping attack:', error);
+      }
+    },
+    goBack() {
+      this.$router.push('/Store');
+    },
+    goHome() {
+      this.$router.push('/');
+    },
+  },
+};
+</script>
   
   <style scoped>
   .equiped-attack-page {

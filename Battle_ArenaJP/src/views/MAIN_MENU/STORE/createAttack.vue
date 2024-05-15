@@ -11,7 +11,7 @@
       <p>Set the affected box</p>
       <form @submit.prevent="submitForm">
         <label for="attack-name">Insert name: </label>
-        <input type="text" id="attack-name" v-model="gameName" placeholder="Name of the attack" required>
+        <input type="text" id="attack-name" v-model="attackName" placeholder="Name of the attack" required>
         <section class="row-column-selector">
           <div>
             <h2>Row:</h2>
@@ -24,21 +24,23 @@
             <button type="button" @click="changeColumns(1)">+</button>
           </div>
         </section>
-      </form>
-      <div class="submit">
-        <button type="submit">CREATE ATTACK</button>
+        <div class="submit">
+          <button type="submit">CREATE ATTACK</button>
         </div>
+      </form>
     </section>
   </main>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      gameName: '',
-      rows: 10,
-      columns: 10,
+      attackName: '',
+      rows: 9,
+      columns: 9,
       health: 8,
       minRows: 2,
       maxRows: 10,
@@ -48,14 +50,38 @@ export default {
   },
   methods: {
     goBack() {
-      // Navega pantalla anterior
       this.$router.push('/Store');
     },
     goHome() {
-      this.$router.push('/'); // or any other route you want to navigate to
+      this.$router.push('/');
     },
-    submitForm() {
-      console.log('Creating attack with:', this.gameName, this.rows, this.columns);
+    async submitForm() {
+      try {
+        const token = localStorage.getItem('token');
+        console.log( `(${this.rows},${this.columns})`)
+        const response = await axios.post('https://balandrau.salle.url.edu/i3/shop/attacks',
+          {
+            attack_ID: this.attackName,
+            positions: `(${this.rows},${this.columns})`,
+            img: 'https://...', 
+          },
+          {
+            headers: {
+              'Bearer': `${token}`,
+              'Content-Type': 'application/json'
+            }
+          }
+        );
+        if (response.status === 201) {
+          console.log('Attack created:', response.data);
+          // Redirect to your attacks or any other route as needed
+          this.$router.push('/equippedAttacks');
+        } else {
+          console.error('Failed to create attack:', response.data);
+        }
+      } catch (error) {
+        console.error('Error creating attack:', error);
+      }
     },
     changeRows(amount) {
       if (this.rows + amount >= this.minRows && this.rows + amount <= this.maxRows) {
@@ -118,7 +144,6 @@ export default {
   margin: 0;
   text-align: center;
   color: white;
-  font-size: ;
 }
 
 header {
