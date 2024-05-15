@@ -4,11 +4,14 @@
       <button class="back-button" @click="goBack">⬅️ Back</button>
       <button class="home-button" @click="goHome">🏠 Home</button>
     </header>
+    <div class="search-bar">
+      <input type="text" v-model="searchTerm" @input="filterGames" placeholder="Buscar juegos...">
+    </div>
     <section class="games-list">
       <h1>Available Games</h1>
       <p>Here are available games to Join</p>
       <ul>
-        <li v-for="(game, index) in games" :key="index">
+        <li v-for="(game, index) in filteredGames" :key="index">
           <span>{{ game.game_ID }}</span>
           <span v-for="(playerg, k) in game.players_games" :key="k">
             {{ playerg.player_ID }}
@@ -22,7 +25,6 @@
   </main>
 </template>
 
-
 <script>
 import axios from 'axios';
 
@@ -30,53 +32,39 @@ export default {
   data() {
     return {
       games: [],
-      imgs: [],
+      filteredGames: [],
       joiningGame: false,
+      searchTerm: '',
     };
   },
   mounted() {
     this.fetchGames();
-    this.fetchImg();
   },
   methods: {
     async fetchGames() {
-  try {
-    const token = localStorage.getItem('token');
-    const response = await axios.get('https://balandrau.salle.url.edu/i3/arenas', {
-      headers: {
-        'Bearer': `${token}`,
-        'Accept': 'application/json'
+      try {
+        const token = localStorage.getItem('token');
+        const response = await axios.get('https://balandrau.salle.url.edu/i3/arenas', {
+          headers: {
+            'Bearer': `${token}`,
+            'Accept': 'application/json'
+          }
+        });
+        this.games = response.data;
+        this.filteredGames = response.data;
+      } catch (error) {
+        console.error('Error fetching games:', error);
       }
-    });
-    if (response.headers['content-type'] && response.headers['content-type'].includes('application/json')) {
-          // emmagatzemar les dades dels jugadors en l'estado del component
-          console.log('Players:', response.data);
-          this.games = response.data;
-        } else {
-          console.error('Error: La respuesta no contiene datos JSON');
-        }  } catch (error) {
-    console.error('Error fetching games:', error);
-  }
-},
-async fetchImg() {
-  try {
-    const token = localStorage.getItem('token');
-    const response = await axios.get('https://balandrau.salle.url.edu/i3/players/', {
-      headers: {
-        'Bearer': `${token}`,
-        'Accept': 'application/json'
+    },
+    filterGames() {
+      if (!this.searchTerm) {
+        this.filteredGames = this.games;
+      } else {
+        this.filteredGames = this.games.filter(game =>
+          game.game_ID.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
       }
-    });
-    if (response.headers['content-type'] && response.headers['content-type'].includes('application/json')) {
-          // emmagatzemar les dades dels jugadors en l'estado del component
-          console.log('Players:', response.data);
-          this.games = response.data;
-        } else {
-          console.error('Error: La respuesta no contiene datos JSON');
-        }  } catch (error) {
-    console.error('Error fetching games:', error);
-  }
-},
+    },
     goBack() {
       this.$router.push('/Pasarela-play');
     },
@@ -86,10 +74,9 @@ async fetchImg() {
     joinGame(gameId) {
       this.joiningGame = true;
       console.log('Joining game:', gameId);
-      // Add your game joining logic here
       setTimeout(() => {
         this.joiningGame = false;
-      }, 2000); // Simulate a 2-second delay
+      }, 2000); // Simula un retraso de 2 segundos
     },
   },
 };
