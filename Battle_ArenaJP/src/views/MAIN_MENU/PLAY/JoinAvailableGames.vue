@@ -4,12 +4,12 @@
       <button class="back-button" @click="goBack">⬅️ Back</button>
       <button class="home-button" @click="goHome">🏠 Home</button>
     </header>
-    <div class="search-bar">
-      <input type="text" v-model="searchTerm" @input="filterGames" placeholder="Buscar juegos...">
-    </div>
     <section class="games-list">
       <h1>Available Games</h1>
       <p>Here are available games to Join</p>
+      <div class="search-bar">
+      <input type="text" v-model="searchTerm" @input="filterGames" placeholder="Buscar juegos...">
+    </div>
       <ul>
         <li v-for="(game, index) in filteredGames" :key="index">
           <span>{{ game.game_ID }}</span>
@@ -151,6 +151,11 @@ header {
   scrollbar-width: none;
 }
 
+.search-bar input{
+  width: 40em;
+  height: 3em;
+  margin-bottom: 2em;
+}
 
 .games-list h1 {
   color: #ffd700;

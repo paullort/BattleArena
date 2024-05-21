@@ -7,6 +7,9 @@
       <section class="attack-list">
         <h1>Available Attacks</h1>
         <p>Here are available attacks to buy</p>
+        <div class="search-bar">
+      <input type="text" v-model="searchTerm" @input="filterGames" placeholder="Found Attacks...">
+    </div>
         <ul class="attack-grid">
           <li v-for="(attack, index) in attacks" :key="index" 
               :class="['attack-item', `power-${attack.power}`]">
@@ -84,6 +87,15 @@
       goHome() {
         this.$router.push('/');
       },
+      filterAttacks() {
+      if (!this.searchTerm) {
+        this.filteredAttacks = this.attacks;
+      } else {
+        this.filteredAttacks = this.attacks.filter(attack =>
+          attack.attack_ID.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+      }
+    },
       joinGame(gameId) {
         this.joiningGame = true;
         console.log('Joining game:', gameId);
@@ -171,6 +183,12 @@
     font-size: 1.5em;
     margin-bottom: 2em;
   }
+
+  .search-bar input{
+  width: 40em;
+  height: 3em;
+  margin-bottom: 2em;
+}
   
   .attack-list ul {
     display: grid;

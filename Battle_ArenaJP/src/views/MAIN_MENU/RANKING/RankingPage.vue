@@ -4,8 +4,11 @@
       <button class="back-button" @click="goBack">⬅️ Back</button>
       <button class="home-button" @click="goHome">🏠 Home</button>
     </header>
+    <section class="players-list">
+      <h1>Ranking</h1>
     <SearchBar @search-updated="filterPlayers" />
     <PlayerList :players="filteredPlayers" :errorMessage="errorMessage" />
+  </section>
   </main>
 </template>
 
@@ -30,6 +33,13 @@ export default {
     this.fetchPlayers();
   },
   methods: {
+    
+    goBack() {
+      this.$router.push('/MainMenu');
+    },
+    goHome() {
+      this.$router.push('/');
+    },
     async fetchPlayers() {
       try {
         const token = localStorage.getItem('token');
@@ -65,6 +75,22 @@ export default {
 <style scoped>
 
 
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  color: #fff;
+  width: 100%;
+  text-align: left;
+}
+
+h1{
+  margin-bottom: 1em;
+  font-size: 3em;
+  color: yellow;
+}
+
 .back-button {
   padding: 0.5em 1em;
   background-color: #ffd700;
@@ -86,6 +112,28 @@ export default {
     font-size: 1.2em;
     margin-left: 10px; /* add some margin to separate from the back button */
   }
+
+  .players-list{
+    padding: 2em;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    width: 80%;
+    height: 85%;
+    margin: 0 auto;
+    text-align: center;
+    overflow-y:auto;
+  }
+
+  .players-list::-webkit-scrollbar {
+  display: none;
+}
+.players-list {
+  -ms-overflow-style: none;
+}
+.players-list {
+  scrollbar-width: none;
+}
 .ranking-page {
   display: flex;
   flex-direction: column;

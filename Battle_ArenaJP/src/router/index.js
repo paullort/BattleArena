@@ -60,8 +60,8 @@ const router = createRouter({
       component: () => import('../views/MAIN_MENU/STORE/equippedAttacks.vue')
     },
     {
-      path: '/sellattack',
-      name: 'sellattack',
+      path: '/sellAttack',
+      name: 'sellAttack',
       component: () => import('../views/MAIN_MENU/STORE/sellAttack.vue')
     },
     {
@@ -93,6 +93,11 @@ const router = createRouter({
       path: '/popupdelete',
       name: 'popupdelete',
       component: () => import('../views/MAIN_MENU/PLAYER_MANAGEMENT/PopUpDelete.vue')
+    },
+    {
+      path: '/InGame',
+      name: 'InGame',
+      component: () => import('../views/MAIN_MENU/PLAY/InGame.vue')
     }
 
   ]
