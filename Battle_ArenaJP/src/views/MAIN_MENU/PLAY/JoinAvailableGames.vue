@@ -72,6 +72,7 @@ export default {
       this.$router.push('/');
     },
     async joinGame(gameId) {
+      this.joiningGame = true;
       try {
         const token = localStorage.getItem('token');
         const response = await axios.post(`https://balandrau.salle.url.edu/i3/arenas/${gameId}/play`, 
@@ -93,6 +94,7 @@ export default {
         }
       } catch (error) {
         console.error('Error entering game:', error);
+        this.joiningGame = false;
       }
     },
   },

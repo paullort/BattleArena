@@ -5,8 +5,6 @@
       <div class="button-container">
         <button class="login-button" @click="goToLogin">LOG IN</button>
         <button class="register-button" @click="goToRegister">Register NOW</button>
-        <!-- Botón TEMPORAL para desarrollo -->
-        <button class="temporal-button" @click="goToMainMenu">TEMPORAL-on et portaria si estiguessis logejat</button>
       </div>
     </div>
   </div>

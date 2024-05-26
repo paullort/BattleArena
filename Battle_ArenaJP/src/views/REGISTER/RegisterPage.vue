@@ -8,7 +8,7 @@
       <form @submit.prevent="submitForm">
         <input v-model="playerID" type="text" placeholder="Player ID" required>
         <input v-model="password" type="password" placeholder="Password" required>
-        <input v-model="img" type="text" placeholder="Image URL" required>
+        <input v-model="img" type="text" placeholder="Profile Image URL" required>
         <button type="submit" class="continue-button">continue</button>
       </form>
       <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
@@ -77,13 +77,13 @@ header {
 }
 
 .back-button {
-    padding: 0.5em 1em;
-    background-color: #ffd700;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-  }
+  padding: 0.5em 1em;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
 .form-container {
   background: rgba(255, 255, 255, 0.8);
@@ -93,8 +93,10 @@ header {
 }
 
 .form-title {
-  color: #000;
-  margin-bottom: 1em;
+  background-color: #ffd700;
+  color: black;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 input[type=text],

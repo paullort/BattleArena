@@ -11,6 +11,7 @@
         <input v-model="password" type="password" placeholder="Password" required>
         <button type="submit" class="continue-button">continue</button>
       </form>
+      <p class="not-registered" @click="goToRegister">Not registered yet?</p>
     </section>
   </main>
 </template>
@@ -39,33 +40,32 @@ export default {
           password: this.password,
         });
         if (response.status === 200) {
-      const { player_ID, password, img, xp, level, coins, token } = response.data;
-      console.log({
-        player_ID,
-        password,
-        img,
-        xp,
-        level,
-        coins,
-        token
-      });
-    }
-
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('user', response.data.player_ID);
-        axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
-
-        if (response.status === 400) {
+          const { player_ID, password, img, xp, level, coins, token } = response.data;
+          console.log({
+            player_ID,
+            password,
+            img,
+            xp,
+            level,
+            coins,
+            token
+          });
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('user', response.data.player_ID);
+          axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
+          this.$router.push('/MainMenu');
+        } else {
           console.error('Error instance:', response.data.error);
           this.errorMessage = response.data.error.message;
-        } else {
-          this.$router.push('/MainMenu');
         }
       } catch (error) {
         console.error('Error:', error);
-        this.errorMessage = 'Error connecting to the API';
+        this.errorMessage = 'User does not exist';
       }
     },
+    goToRegister() {
+      this.$router.push('/register');
+    }
   },
 };
 </script>
@@ -92,13 +92,14 @@ header {
 }
 
 .back-button {
-    padding: 0.5em 1em;
-    background-color: #ffd700;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-  }
+  padding: 0.5em 1em;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .form-container {
   background: rgba(255, 255, 255, 0.8);
   padding: 2em;
@@ -111,12 +112,6 @@ header {
   color: black;
   padding: 10px;
   margin-bottom: 20px;
-}
-
-.form-label {
-  display: block;
-  margin-bottom: 1em;
-  color: #333;
 }
 
 input[type=text],
@@ -139,6 +134,17 @@ input[type=password] {
 
 .continue-button:hover {
   opacity: 0.9;
+}
+
+.not-registered {
+  margin-top: 1em;
+  color: #333;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.not-registered:hover {
+  color: #000;
 }
 
 .error-message {
