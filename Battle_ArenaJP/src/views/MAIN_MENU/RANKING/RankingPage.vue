@@ -110,7 +110,7 @@ h1{
     cursor: pointer;
     color: #333;
     font-size: 1.2em;
-    margin-left: 10px; /* add some margin to separate from the back button */
+    margin-left: 10px; 
   }
 
   .players-list{

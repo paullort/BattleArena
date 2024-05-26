@@ -224,7 +224,7 @@ export default {
 
 .attack-details .attack-power,
 .attack-details .attack-price {
-  margin-right: 1em; /* Ajusta el espacio entre Power y Price según sea necesario */
+  margin-right: 1em; 
 }
 
 
@@ -240,21 +240,20 @@ export default {
     margin-top: 2em;
   }
   
-  /* Colores según el poder del ataque */
   .power-1 {
-    background-color: #ffd700; /* Amarillo */
+    background-color: #ffd700; 
   }
   
   .power-2 {
-    background-color: #ffa500; /* Naranja */
+    background-color: #ffa500; 
   }
   
   .power-3 {
-    background-color: #ff4500; /* Rojo oscuro */
+    background-color: #ff4500; 
   }
   
   .power-4 {
-    background-color: #ff0000; /* Rojo */
+    background-color: #ff0000; 
   }
   
   @media (max-width: 768px) {

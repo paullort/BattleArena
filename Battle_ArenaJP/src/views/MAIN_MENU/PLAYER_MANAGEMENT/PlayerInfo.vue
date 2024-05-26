@@ -46,7 +46,7 @@ export default {
         this.$router.push('/PlayerManagement');
       },
       goHome() {
-        this.$router.push('/'); // or any other route you want to navigate to
+        this.$router.push('/'); 
       },
     showChangePhotoPopup() {
       this.showPopup = true;
@@ -94,7 +94,7 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
-  font-family: Arial, sans-serif; /* Change to preferred font */
+  font-family: Arial, sans-serif; 
 }
 
 header {
@@ -123,7 +123,7 @@ header {
     cursor: pointer;
     color: #333;
     font-size: 1.2em;
-    margin-left: 10px; /* add some margin to separate from the back button */
+    margin-left: 10px; 
   }
 
 .player-info {
@@ -154,12 +154,12 @@ color: aliceblue;
 }
 
 .player-info img {
-  max-width: 10em; /* Or the size you prefer */
+  max-width: 10em; 
   max-height: auto;
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   object-fit: cover;
-  /* More styles for the image if needed */
+  
 }
 .profile-pic-container {
   position: relative;

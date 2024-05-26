@@ -161,14 +161,13 @@
     overflow-y: auto;
   }
   
-  /* Ocultar la barra de desplazamiento */
   .attack-list::-webkit-scrollbar {
     display: none;
   }
   
   .attack-list {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
   }
   
   .attack-list h1 {

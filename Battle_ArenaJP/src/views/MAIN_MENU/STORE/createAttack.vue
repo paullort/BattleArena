@@ -74,7 +74,6 @@ export default {
         );
         if (response.status === 201) {
           console.log('Attack created:', response.data);
-          // Redirect to your attacks or any other route as needed
           this.$router.push('/equippedAttacks');
         } else {
           console.error('Failed to create attack:', response.data);
@@ -98,7 +97,6 @@ export default {
 </script>
 
 <style scoped>
-/* Layout */
 .back-button {
   padding: 0.5em 1em;
   background-color: #ffd700;
@@ -159,7 +157,6 @@ label{
   font-size: 1.5em;
 }
 
-/* Typography */
 h1 {
   font-size: 3em;
   margin-bottom: 10px;
@@ -176,7 +173,6 @@ p {
   font-size: 1.5em;
 }
 
-/* Buttons */
 button {
   padding: 10px 20px;
   background-color: #ffd700;

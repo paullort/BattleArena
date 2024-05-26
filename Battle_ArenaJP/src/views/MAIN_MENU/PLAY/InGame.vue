@@ -60,7 +60,6 @@ export default {
   watch: {
     logs: {
       handler() {
-        // Aquí puedes llamar a la función que desees cada vez que logs cambie
         this.GetGame();
       },
       deep: false, // Para que también observe cambios en la estructura interna del array
