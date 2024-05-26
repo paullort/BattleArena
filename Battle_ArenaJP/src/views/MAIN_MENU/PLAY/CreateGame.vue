@@ -78,7 +78,7 @@ export default {
         if (response.status === 201) {
           console.log('Game created:', response.data);
           // Redirect to your attacks or any other route as needed
-          this.$router.push('/MainMenu');
+          this.$router.push('/InGame');
         } else {
           console.error('Failed to create attack:', response.data);
         }

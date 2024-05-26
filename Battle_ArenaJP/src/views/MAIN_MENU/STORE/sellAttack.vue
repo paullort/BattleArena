@@ -77,27 +77,6 @@ export default {
         console.error('Error fetching attacks:', error);
       }
     },
-
-    async unequipAttack(attack) {
-      try {
-        const token = localStorage.getItem('token');
-        const response = await axios.delete(`https://balandrau.salle.url.edu/i3/players/attacks/${attack.attack_ID}`, {
-          headers: {
-            'Bearer': `${token}`,
-            'Content-Type': 'application/json'
-          }
-        });
-        if (response.status === 204) {
-          console.log('Attack unequipped:', response.data);
-          // Actualizar la lista de ataques después de equipar uno
-          this.fetchAttacks();
-        } else {
-          console.error('Failed to unequip attack:', response.data);
-        }
-      } catch (error) {
-        console.error('Error unequipping attack:', error);
-      }
-    },
     goBack() {
       this.$router.push('/Store');
     },
@@ -105,32 +84,30 @@ export default {
       this.$router.push('/');
     },
   },
-  async sellAttack(attack) {
+  async sellSelectedAttack() {
       try {
-      const token = localStorage.getItem('token');
-      const response = await axios.post(`https://balandrau.salle.url.edu/i3/shop/${attack.attack_ID}/sell`, 
-        {
-          price: this.sellPrice,
-        },
-        {
-          headers: {
-          'Bearer': `${token}`,
-          'Content-Type': 'application/json'
+        const token = localStorage.getItem('token');
+        console.log
+        const response = await axios.post(`https://balandrau.salle.url.edu/i3/shop/attacks/${this.selectedAttack.attack_ID}/sell`,
+          { price: this.sellPrice },
+          {
+            headers: {
+              'Bearer': `${token}`,
+              'Accept': 'application/json'
+            }
           }
+        );
+        if (response.status === 200) {
+          console.log('Attack put to sell:', response.data);
+          this.fetchAttacks();
+          this.closeSellPopup();
+        } else {
+          console.error('Failed to sell attack:', response.data);
         }
-      );
-      if (response.status === 200) {
-        console.log('Attack selled:', response.data);
-        // Actualizar la lista de ataques después de equipar uno
-        this.fetchAttacks();
-      } else {
-        console.error('Failed to equip attack:', response.data);
-        this.fetchAttacks();
+      } catch (error) {
+        console.error('Error selling attack:', error);
       }
-    }catch (error) {
-      console.error('Error equipping attack:', error);
-    }
-  },
+    },
 };
 </script>
   

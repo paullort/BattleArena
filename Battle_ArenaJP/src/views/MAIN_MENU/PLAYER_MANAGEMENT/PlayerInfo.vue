@@ -7,9 +7,9 @@
     <section class="player-info">
       <h1>PLAYER INFO</h1>
       <div class="profile-pic-container" @mouseover="showChangePhotoPopup" @mouseleave="hideChangePhotoPopup">
-        <img class="profile_pic" :src="img" alt="Player's Photo">
+        <img class="profile_pic" :src="dataPlayer.img" alt="Player's Photo">
         <div v-if="showPopup" class="change-photo-popup">
-          <input type="text" v-model="imageUrl" placeholder="Enter new photo URL">
+          <input type="text" placeholder="Enter new photo URL">
           <button @click="changePhoto">Change</button>
         </div>
       </div>
@@ -34,9 +34,11 @@ export default {
       user: localStorage.getItem('user'),
       img: localStorage.getItem('img'), 
       showPopup: true,
-      imagen: 'https://archive.org/download/cursed-kirby-picture-by-anonymous./IMG-20200912-WA0118.jpg',
-      imageUrl: ''
+      dataPlayer: [],
     };
+  },
+  mounted() {
+    this.showPhoto();
   },
   methods: {
     goBack() {
@@ -52,33 +54,28 @@ export default {
     changePhoto() {
       this.imagen = this.imageUrl;
     },
-    // Other methods...
-  },
-  mounted() {
-
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
-    const img = localStorage.getItem('img');
-    //const img = localStorage.getItem('img');
-    const apiURL = 'https://balandrau.salle.url.edu/i3/players/+user';
-    
-    
-    const headers ={
-            Bearer: token, // diu dani "Bearer" en contes de "Authorization"
-            'Content-Type': 'application/json',
-          };
-    axios.get(apiURL, {headers}).then((response) => {
-      this.player = response.data;
-
-      if(response.status === 200){
-        console.log('Player info:', response.data);
-        this.player = response.data;
-        console.log('Player:', this.player);
+    async showPhoto() {
+      try {
+        
+        const token = localStorage.getItem('token');
+        const response =  await axios.get(`https://balandrau.salle.url.edu/i3/players/${this.user}`, {
+          headers: {
+            'Bearer': `${token}`,
+            'Accept': 'application/json'
+          }
+        });
+        if (response.status === 200) {
+          this.dataPlayer = response.data;
+          
+        }else{
+          console.log(this.user);
+        }
+      } catch (error) {
+        console.error('Error with img:', error);
       }
-    }).catch((error) => {
-      console.error(error);
-    });
+    }
   }
+  
   };
   
 </script>

@@ -71,12 +71,29 @@ export default {
     goHome() {
       this.$router.push('/');
     },
-    joinGame(gameId) {
-      this.joiningGame = true;
-      console.log('Joining game:', gameId);
-      setTimeout(() => {
-        this.joiningGame = false;
-      }, 2000); // Simula un retraso de 2 segundos
+    async joinGame(gameId) {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await axios.post(`https://balandrau.salle.url.edu/i3/arenas/${gameId}/play`, 
+        {
+          path: {
+            id: gameId, 
+          }
+          },
+        {
+          headers: {
+            'Bearer': `${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        if (response.status === 200 || response.status === 204) {
+          this.logs = response.data;
+          console.log(this.logs);
+          this.$router.push('/InGame');
+        }
+      } catch (error) {
+        console.error('Error entering game:', error);
+      }
     },
   },
 };
