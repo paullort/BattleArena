@@ -15,4 +15,4 @@ Tecnologías utilizadas:
 
 Video demostrativo:
 Puedes ver cómo funciona el juego en este video de YouTube.
-[Ver video demostrativo]([https://youtu.be/VadFpZvgSOc](https://youtu.be/8iIQzk-EFc0))
+[Ver video demostrativo]([https://youtu.be/8iIQzk-EFc0])
